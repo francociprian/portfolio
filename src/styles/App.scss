@@ -268,14 +268,7 @@ ul {
 
 
 .project-header {
-  &.details {
-    margin: 17rem auto 12rem;
-  }
   .project-inner {
-    display: flex;
-    justify-content: space-between;
-    width: 1000px;
-    margin: 0 auto;
     @media (max-width: 1480px) {
       width: 840px;
     }
@@ -285,21 +278,11 @@ ul {
     @media (max-width: 768px) {
       flex-direction: column;
     }
-    .project-title {
-      h5 {
-        margin: 0;
-        font-weight: 400;
-      }
-    }
     .project-description {
       @media (max-width: 768px) {
         margin: 1rem 0 3rem;
       }
       p {
-        margin: 0;
-        font-weight: 300;
-        width: 410px;
-        line-height: 1.5rem;
         @media (max-width: 768px) {
           width: 100%;
         }

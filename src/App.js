@@ -131,7 +131,7 @@ function App() {
             )}
           </AnimatePresence>
         </div>
-        <SiteVersion />
+        {!isMobile && <SiteVersion />}
       </motion.div>
     </>
   )
