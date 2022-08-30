@@ -198,6 +198,7 @@ ul {
   align-items: center;
   .inner-banner {
     @media (max-width: 680px) {
+      min-height: 70vh;
       margin-top: 12rem;
     }
     .main-headline  {
