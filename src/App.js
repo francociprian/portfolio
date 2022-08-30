@@ -13,6 +13,7 @@ import NotFound from './Pages/NotFound';
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 import Loading from './components/Loading';
+import { isMobile } from 'react-device-detect';
 
 
 function App() {
@@ -65,7 +66,8 @@ function App() {
     const difference = data.current - data.rounded
     const acceleration = difference / size.width
     const velocity = +acceleration
-    const skew = velocity * 7.5
+    const skew = velocity * `${isMobile ? 0.5 : 7.5}`
+
 
     //Assign skew and smooth scrolling to the scroll container
     setState({ scroll: data.rounded, skew: skew })
