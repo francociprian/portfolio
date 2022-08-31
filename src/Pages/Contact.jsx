@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from 'react'
+import React,{ useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import socialLinks from '../components/socialLinks'
 
@@ -19,9 +19,7 @@ const BannerContact = () => {
 
   return (
     <div className="max-w-5xl mx-auto py-16">
-          <div 
-          // className="flex items-center justify-center mx-14 h-60vh"
-          >
+          <div>
             <form 
                 onSubmit={()=>handleSubmit}
                 className="mt-16 flex flex-col items-center"
@@ -73,7 +71,6 @@ const BannerContactLink = () => {
           href={url} 
           target="_blank" 
           rel="noreferrer"
-          // className='flex flex-col items-center text-blackProject dark:text-whiteProject'
           className="group relative inline-block text-blackProject dark:text-whiteProject underline hover:text-red-500 duration-300"
           >
             {icon}
@@ -102,14 +99,7 @@ function Contact() {
             animate={{ opacity: 1 }}
             transition={transition}
           >
-            <div 
-              className='container'
-              style={{
-                // height:'90vh',
-                // display:'flex',
-                // justifyContent: 'center', 
-                // alignItems: 'center'
-            }}>
+            <div className='container'>
               <div className='min-h-90 flex flex-col justify-center'>
                 <BannerContact/>
                 <BannerContactLink/>
