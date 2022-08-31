@@ -31,7 +31,6 @@ $secondary: #434448;
 }
 
 * {
-  // font-size: 16px;
   box-sizing: border-box;
 }
 
@@ -44,7 +43,6 @@ body {
   height: 100%;
   font-family: "Ibm plex sans";
   font-size: 16px;
-  // overflow-x: hidden;
   overscroll-behavior-y: none;
 }
 
@@ -78,60 +76,6 @@ h5 {
   font-size: 1.25em;
 }
 
-// a {
-//   text-decoration: none;
-//   color: $text;
-//   transition: ease-in-out 0.2s;
-//   &:hover {
-//     opacity: 0.5;
-//   }
-//   &.no-hover {
-//     &:hover {
-//       opacity: 1;
-//     }
-//   }
-// }
-
-
-ul {
-  margin: 0;
-  padding: 0;
-  span {
-    text-transform: uppercase;
-    font-size: 0.875rem;
-    font-weight: 400;
-    margin-bottom: 1rem;
-    display: block;
-    letter-spacing: 0.05rem;
-  }
-  .columns {
-    display: flex;
-    .column {
-      &:first-child {
-        margin-right: 2rem;
-        @media (max-width: 680px) {
-          margin-right: 8rem;
-        }
-      }
-    }
-  }
-  li {
-    list-style: none;
-    font-size: 0.875rem;
-    font-weight: 300;
-    margin-bottom: 0.5rem;
-    @media (max-width: 680px) {
-      margin-bottom: 0.75rem;
-    }
-    a {
-      color: $secondary;
-    }
-    &.disabled {
-      opacity: 0.4;
-    }
-  }
-}
-
 .container {
   flex-grow: 1;
   margin: 0 auto;
@@ -157,6 +101,35 @@ ul {
 .body-lock {
   overflow-y: hidden;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+  span {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    display: block;
+    letter-spacing: 0.05rem;
+  }
+  // li {
+  //   list-style: none;
+  //   font-size: 0.875rem;
+  //   font-weight: 300;
+  //   margin-bottom: 0.5rem;
+  //   @media (max-width: 680px) {
+  //     margin-bottom: 0.75rem;
+  //   }
+  //   a {
+  //     color: $secondary;
+  //   }
+  //   &.disabled {
+  //     opacity: 0.4;
+  //   }
+  // }
+}
+
 
 // -----------------------------------HOMEPAGE-----------------------------------//
 // .home-title {
@@ -263,9 +236,6 @@ ul {
     // }
   }
 }
-
-
-
 
 .project-header {
   .project-inner {

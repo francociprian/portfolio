@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { BsArrowRight} from "react-icons/bs";
+import { BsArrowRight } from "react-icons/bs";
 import calculadora from '../images/mobile.gif'
 
 const Proyectos = [
   {
     title: "9Points",
-    technologies: 'HTML',
+    technologies : ["HTML", "CSS", "JavaScript"],
     mediaUrl: 'https://i.postimg.cc/CMQd2P12/9points.webp',
     urlDeploy: 'https://9points.netlify.app/',
     details: 'mb-48',
@@ -16,6 +16,7 @@ const Proyectos = [
   },
   {
     title: "SocialTree",
+    technologies : ["ReactJS", "Firebase", "ChakraUI"],
     mediaUrl: 'https://i.postimg.cc/fymLmZN0/social-Tree.png',
     urlDeploy: 'https://socialtreee.vercel.app',
     details : 'mt-64 mx-auto mb-48',
@@ -25,6 +26,7 @@ const Proyectos = [
   },
   {
     title: "Untraceable",
+    technologies : ["HTML", "CSS", "JavaScript"],
     mediaUrl: 'https://i.postimg.cc/VNC3YNBM/untraceable.webp',
     urlDeploy: 'https://untraceable.netlify.app/',
     details : 'mt-64 mx-auto mb-48',
@@ -34,6 +36,7 @@ const Proyectos = [
   },
   {
     title: "TodoList",
+    technologies : ["ReactJS", "CSS" ],
     mediaUrl: 'https://i.postimg.cc/sgZnWNQC/todoList.webp',
     urlDeploy: 'https://taskfranco.vercel.app',
     details : 'mt-64 mx-auto mb-48',
@@ -43,6 +46,7 @@ const Proyectos = [
   },
   {
     title: "Calculator",
+    technologies : ["ReactJS", "CSS", "mathJS" ],
     mediaUrl: 'https://i.postimg.cc/3RCJnhNM/React-calculator.webp',
     urlDeploy: 'https://calculatorfrancociprian.netlify.app/',
     details : 'mt-64 mx-auto mb-48',
@@ -52,6 +56,7 @@ const Proyectos = [
   },
   {
     title: "weather-with-franco",
+    technologies : ["ReactJS", "CSS"],
     mediaUrl: 'https://i.postimg.cc/k4jLnYh6/weather-with-franco.webp',
     urlDeploy: 'https://francociprian.github.io/Weather-with-Franco/',
     details : 'mt-64 mx-auto mb-48',
@@ -62,7 +67,6 @@ const Proyectos = [
 ]
 
 const transition = { duration: 1.5, ease: [0.6, -0.05, 0.01, 0.9] }
-
 
 function Projects() {
   useEffect(() => {
@@ -84,13 +88,13 @@ function Projects() {
             >
               <div className='flex flex-col items-center min-h-600vh' >
                   <div className='my-24 max-w-6xl'>
-                    {Proyectos.map(({ title, technologies, mediaUrl, urlDeploy, details, urlImage1, urlImage2, urlImage3 }, index) => {
+                    {Proyectos.map((items, index) => {
                       return(
                         <div key={index} className='flex flex-col items-center my-20'>
-                          <div className={`project-header ${details}`}>
+                          <div className={`project-header ${items.details}`}>
                             <div className="container">
                               <div className="project-inner flex justify-between w-[1000px] mx-auto">
-                                <div><h5 className='text-blackProject dark:text-whiteProject text-2xl m-0 font-normal underline underline-offset-8'>{title}</h5></div>
+                                <div><h5 className='text-blackProject dark:text-whiteProject text-2xl m-0 font-normal underline underline-offset-8'>{items.title}</h5></div>
                                 <div className="project-description">
                                   <p className='text-[#9c9c9e] dark:text-[#525356] m-0 font-light w-[410px] leading-6'>
                                     Looking to improve the overall quality of the product through a
@@ -99,26 +103,26 @@ function Projects() {
                                 </div>
                                 <div className="">
                                   <ul className='text-[#9c9c9e] dark:text-[#525356]'>
-                                    <span className='text-blackProject dark:text-whiteProject'>Projects worked on: </span>
-                                    <li>HTML</li>
-                                    <li>JAVASCRIPT</li>
-                                    <li>REACTJS</li>
+                                    <span className='text-blackProject dark:text-whiteProject'>Technologies Used: </span>
+                                    {items.technologies.map((items)=>{
+                                      return <li className='text-sm list-none font-light mb-1'>{items}</li>
+                                    })}
                                   </ul>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div>
-                            <img src={mediaUrl} alt={title} className='pb-4' />
+                            <img src={items.mediaUrl} alt={items.title} className='pb-4' />
                             <div className='flex justify-evenly gap-4 1024Max:flex-col 1024Max:items-center 1024Max:gap-8 my-40 relative'>
                               <div className='absolute left-50 bottom-12 bg-[#ebeaea] dark:bg-[#525356] w-1/2 h-full z-[-99]'></div>
-                              <img src={urlImage1} alt={title} className='w-1/5 1024Max:w-4/5 rounded-3xl border-[2px] border-zinc-800 '/>
-                              <img src={urlImage2} alt={title} className='w-1/5 1024Max:w-4/5 rounded-3xl border-[2px] border-zinc-800 '/>
-                              <img src={urlImage3} alt={title} className='w-1/5 1024Max:w-4/5 rounded-3xl border-[2px] border-zinc-800 '/>
+                              <img src={items.urlImage1} alt={items.title} className='w-1/5 1024Max:w-4/5 rounded-3xl border-[2px] border-zinc-800 '/>
+                              <img src={items.urlImage2} alt={items.title} className='w-1/5 1024Max:w-4/5 rounded-3xl border-[2px] border-zinc-800 '/>
+                              <img src={items.urlImage3} alt={items.title} className='w-1/5 1024Max:w-4/5 rounded-3xl border-[2px] border-zinc-800 '/>
                             </div> 
                           </div>
                           <div className='w-full flex items-center pt-6 justify-center sm:justify-end'>
-                            <a href={urlDeploy} className='flex items-center relative pr-2' target="_blank" rel="noreferrer" >
+                            <a href={items.urlDeploy} className='flex items-center relative pr-2' target="_blank" rel="noreferrer" >
                               <span className='text-[#9c9c9e] dark:text-[#525356]'>deploy</span><BsArrowRight className=' pl-1 text-[#9c9c9e] dark:text-[#525356]'/>
                             </a>
                           </div>
