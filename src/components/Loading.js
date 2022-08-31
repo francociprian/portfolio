@@ -24,7 +24,7 @@ const Loading = () => {
           {/* <br /> I'm just getting my shit together. */}
         </span>
       </>
-      <span className="text-blackProject dark:text-slate-400 absolute bottom-32 left-32 text-5xl 480Max:bottom-12 480Max:left-6 1024Max:bottom-12 1024Max:left-12">%{counter}</span>
+      <span className="text-blackProject dark:text-slate-400 absolute bottom-32 left-32 text-5xl 1024Max:bottom-20 1024Max:left-12">%{counter}</span>
     </motion.div>
   )
 }
