@@ -6,7 +6,7 @@ import calculadora from '../images/mobile.gif'
 const Proyectos = [
   {
     title: "9Points",
-    // technologies: 'HTML',
+    technologies: 'HTML',
     mediaUrl: 'https://i.postimg.cc/CMQd2P12/9points.webp',
     urlDeploy: 'https://9points.netlify.app/',
     details: 'mb-48',
@@ -82,13 +82,7 @@ function Projects() {
               animate={{ opacity: 1 }}
               transition={transition}
             >
-              <div 
-                style={{
-                  minHeight: '550vh',
-                  display:'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                }} >
+              <div className='flex flex-col items-center min-h-600vh' >
                   <div className='my-24 max-w-6xl'>
                     {Proyectos.map(({ title, technologies, mediaUrl, urlDeploy, details, urlImage1, urlImage2, urlImage3 }, index) => {
                       return(

@@ -36,6 +36,7 @@ module.exports = {
         '70': '70vh',
         '60': '60vh',
         '50': '50vh',
+        '600vh':'600vh',
       },
       maxWidth:{
         '85': '85rem',
