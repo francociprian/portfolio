@@ -46,6 +46,7 @@ function App() {
     document.body.style.height = `${
       scrollContainer.current.getBoundingClientRect().height
     }px`
+    console.log(scrollContainer)
   }
 
   const [state, setState] = useState({
@@ -131,7 +132,8 @@ function App() {
             )}
           </AnimatePresence>
         </div>
-        {!isMobile && <SiteVersion />}
+        {/* {!isMobile && <SiteVersion />} */}
+        {!isMobile && (finishLoading ? null : <SiteVersion />)}
       </motion.div>
     </>
   )
@@ -139,8 +141,8 @@ function App() {
 
 const SiteVersion = () => {
   return (
-    <div className='fixed right-12 bottom-12 z-99 flex items-center text-blackProject dark:text-whiteProject'>
-      <span className="text-siteVersion font-light">francociprian - v1.0</span>
+    <div className='fixed right-1 bottom-12 z-99 flex items-center text-blackProject dark:text-whiteProject '>
+      <span className="text-0.75rem font-light">francociprian 2022</span>
       <ToogleTheme/>
     </div>
   )

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useRef } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
 import calculadora from '../images/mobile.gif'
@@ -69,7 +69,17 @@ const Proyectos = [
 const transition = { duration: 1.5, ease: [0.6, -0.05, 0.01, 0.9] }
 
 function Projects() {
+  // const container = useRef()
+  // let container.current.clientHeight
+  // console.log(container.current.getBoundingClientRect().height)
+  // const bodyHeight = () => {
+  //   document.body.style.height = `${
+  //     container.current.getBoundingClientRect().height
+  //   }px`
+  // }
+  
   useEffect(() => {
+    // bodyHeight()
     window.scrollTo(0,0)
   }, [])
 
@@ -86,7 +96,10 @@ function Projects() {
               animate={{ opacity: 1 }}
               transition={transition}
             >
-              <div className='flex flex-col items-center min-h-600vh' >
+              <div 
+                className='flex flex-col items-center min-h-[12000px]' 
+                // ref={container} 
+                >
                   <div className='my-24 max-w-6xl'>
                     {Proyectos.map((items, index) => {
                       return(
