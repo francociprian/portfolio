@@ -23,7 +23,7 @@ const BannerContact = () => {
             <form 
                 onSubmit={()=>handleSubmit}
                 className="mt-16 flex flex-col items-center"
-                style={{transition: 'all 4s ease-in-out'}}
+                // style={{transition: 'all 4s ease-in-out'}}
                 method="post" 
                 action="">
                 <input 
