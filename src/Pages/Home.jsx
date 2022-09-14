@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, useTransform, useScroll, AnimatePresence } from "framer-motion";
 import { Link } from 'react-router-dom';
+import { BsArrowDown } from 'react-icons/bs';
+
 
 const FirstLine = () => {
   return(
@@ -16,6 +18,9 @@ const FirstLine = () => {
           Welcome to my portfolio. I build websites & have a lot of fun with it
         </h1>
         <p  className='text-7xl 680Max:text-4xl font-thin tracking-wider text-blackProject dark:text-whiteProject'>FRONTEND DEVELOPER</p>
+        <div className='md:hidden flex justify-center mt-24 text-blackProject dark:text-whiteProject animate-arrow-bounce'>
+          <BsArrowDown className='h-6 w-6' />
+        </div>
       </div>
     </div>
     )

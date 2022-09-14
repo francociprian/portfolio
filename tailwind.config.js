@@ -95,6 +95,15 @@ module.exports = {
         'xl': '1280px',
         '2xl': '1440px',
         '3xl': '1600px',
+      },
+      animation:{
+        'arrow-bounce': 'arrow-bounce 1.5s infinite',
+      },
+      keyframes:{
+        'arrow-bounce': {
+          '0%, 100%': { transform: 'translateY(-50%)' },
+          '50%': { transform: 'translateY(0)' },
+        },
       }
     },
   },
