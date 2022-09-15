@@ -73,7 +73,7 @@ const BannerContact = () => {
             <input 
               id='submit'
               type="submit" 
-              className={sending ? 'hidden' : 'border-transparent text-base font-bold text-white dark:text-blackMenu tracking-wider h-12 w-40 mt-5 rounded-sm px-5 bg-blackMenu dark:bg-whiteProject hover:bg-orangeSoft hover:text-blackProject hover:dark:bg-orangeSoft cursor-pointer'}
+              className={sending ? 'hidden' : 'border-transparent text-base font-bold text-white dark:text-blackMenu tracking-wider h-12 w-40 mt-5 rounded-sm px-5 bg-blackMenu dark:bg-whiteProject hover:bg-[#626eff] hover:text-whiteProject hover:dark:text-whiteProject hover:dark:bg-[#626eff] cursor-pointer'}
               value='Send Message'
             />
             <div className={sending ? 'inline-block text-black dark:text-white text-center' : 'hidden'} >
@@ -96,10 +96,11 @@ const BannerContactLink = () => {
           href={url} 
           target="_blank" 
           rel="noreferrer"
-          className="group relative inline-block text-blackProject dark:text-whiteProject underline hover:text-red-500 duration-300"
+          className="text-blackProject dark:text-whiteProject hover:text-[#626eff] duration-300 cursor-pointer"
           >
-            {icon}
-            <span className="absolute hidden group-hover:flex -left-5 top-16 -translate-y-full w-auto px-2 py-1 bg-gray-700 rounded-lg text-center text-white text-sm ">{title}</span>
+            <div className='flex items-center gap-2'>
+              {icon} <span className='hidden sm:block uppercase text-0.75rem font-normal'>{title}</span>
+            </div>
         </a>)
       )}
     </div>

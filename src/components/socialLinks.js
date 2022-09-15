@@ -1,4 +1,4 @@
-import { BsInstagram, BsLinkedin, BsGithub, BsFillEnvelopeFill, BsFillFileEarmarkTextFill } from "react-icons/bs";
+import { BsLinkedin, BsGithub, BsFillEnvelopeFill, BsFillFileEarmarkTextFill } from "react-icons/bs";
 
 const socialLinks = [
     {
@@ -9,7 +9,7 @@ const socialLinks = [
     },
     {
       id: 2,
-      title: "Mail",
+      title: "E-mail",
       url: "mailto:franco_ciprian@hotmail.com",
       icon: <BsFillEnvelopeFill className="h-6 w-6"/>
     },
@@ -24,12 +24,6 @@ const socialLinks = [
       title: "GitHub",
       url: "https://github.com/francociprian",
       icon: <BsGithub className="h-6 w-6"/>
-    },
-    {
-      id: 5,
-      title: "Instagram",
-      url: "https://www.instagram.com/franco.ciprian/",
-      icon: <BsInstagram className="h-6 w-6"/>
     },
   ];
   
