@@ -3,21 +3,23 @@ import { motion, useTransform, useScroll, AnimatePresence } from "framer-motion"
 import { Link } from 'react-router-dom';
 import { BsArrowDown } from 'react-icons/bs';
 
-
+const styleStrokeLight = {
+  WebkitTextStroke: '1px black',
+  WebkitTextFillColor: '#eee'
+  // WebkitTextFillColor: '#a7aefa'
+}
+ 
 const FirstLine = () => {
   return(
     <div className='container'>
-      <div className='flex flex-col max-w-85 mx-auto min-h-90 justify-center text-center pt-8 480Max:min-h-screen'>
+      <div className='flex flex-col max-w-85 mx-auto min-h-90 justify-center pt-8 480Max:min-h-screen'>
         <h1 
-          className='mb-10 2xl:text-7.5 xl:text-8xl md:text-7xl font-anderson text-blackProject dark:text-whiteProject 480Max:text-5xl' 
-          style={{
-            // WebkitTextStroke: '1px black',
-            // WebkitTextFillColor: '#a7aefa'
-          }} 
+          className='mb-10 2xl:text-[6.5rem] xl:text-7xl md:text-6xl font-anderson text-blackProject dark:text-whiteProject 480Max:text-4xl' 
         >
-          Welcome to my portfolio. I build websites & have a lot of fun with it
+          <span >Welcome to my portfolio.{' '}I'm</span> 
+          <span className=' text-[#626eff]'> Franco Ciprian </span>
+          <span >and I build websites, have a lot of fun with it</span>
         </h1>
-        <p  className='text-7xl 680Max:text-4xl font-thin tracking-wider text-blackProject dark:text-whiteProject'>FRONTEND DEVELOPER</p>
         <div className='md:hidden flex justify-center mt-24 text-blackProject dark:text-whiteProject animate-arrow-bounce'>
           <BsArrowDown className='h-6 w-6' />
         </div>
@@ -33,7 +35,7 @@ const SecondLine = () => {
       <h1 className="main-headline text-blackProject dark:text-[#fef6f6e8]">
         <motion.span animate={{ opacity: hovered ? 0.2 : 1 }}>
           I am a <span className="semi-bold">Front End Developer</span> with a bit of
-          backend experience, primarily working with node. My taste for Design gave me a great sense of aesthetics, which is reflected in{" "}
+          backend experience, primarily working with ReactJS. My taste for Design gave me a great sense of aesthetics, which is reflected in{" "}
         </motion.span>
         <motion.span
           onHoverStart={() => setHovered(!hovered)}
