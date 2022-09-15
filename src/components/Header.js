@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, NavLink } from "react-router-dom";
+import { isMobile } from 'react-device-detect';
+import ToogleTheme from "./ToogleTheme";
 
 const Header = ({ menuState, setMenuState }) => {
   const location = useLocation()
@@ -43,12 +45,16 @@ const Header = ({ menuState, setMenuState }) => {
               CONTACT
             </NavLink>
           </nav>
-          <div
-            onClick={() => setMenuState(!menuState)}
-            className="cursor-pointer hidden 876Max:block"
-          >
-            <span className="h-2px w-8 m-1 block bg-blackProject dark:bg-whiteProject"></span>
-            <span className="h-2px w-8 m-1 block bg-blackProject dark:bg-whiteProject"></span>
+          <div className="flex items-center">
+            {isMobile && <ToogleTheme/>}
+            <div
+              onClick={() => setMenuState(!menuState)}
+              className="cursor-pointer hidden 876Max:block rounded-lg p-1"
+            >
+                <span className="h-2px w-7 m-1 block bg-blackProject dark:bg-whiteProject"></span>
+                <span className="h-2px w-7 m-1 block bg-blackProject dark:bg-whiteProject"></span>
+                <span className="h-2px w-7 m-1 block bg-blackProject dark:bg-whiteProject"></span>
+            </div>
           </div>
         </div>
       </div>

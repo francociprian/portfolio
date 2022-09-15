@@ -50,7 +50,7 @@ module.exports = {
         // COLOR MENU
         blackMenu: '#191919',
         blackMenuDark: '#212121',
-
+        neonBlue: 'rgba(98, 110, 255,0.3)',
         orangeSoft:'#fdddad',
         html: '#e34f26',
         css: '#2965f1',
