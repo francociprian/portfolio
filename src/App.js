@@ -46,7 +46,7 @@ function App() {
     document.body.style.height = `${
       scrollContainer.current.getBoundingClientRect().height
     }px`
-    console.log(scrollContainer)
+    // console.log(scrollContainer)
   }
 
   const [state, setState] = useState({

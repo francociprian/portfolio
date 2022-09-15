@@ -1,63 +1,88 @@
-import React,{ useState } from 'react'
+import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import socialLinks from '../components/socialLinks'
+import emailjs from '@emailjs/browser'; 
+import { useNavigate } from 'react-router-dom';
 
+
+const Loading = () => {
+  return(
+    <button 
+    className='border-transparent text-base font-bold tracking-wider w-40 h-12 mt-5 rounded-sm px-5 bg-blackMenu dark:bg-whiteProject flex justify-center items-center'
+    > 
+      <svg className="animate-spin h-5 w-5 text-white dark:text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </button>
+  )
+}
 
 const BannerContact = () => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  // const [loader, setLoader] = useState(true)
-  
-  const handleSubmit = (e) => {
-      e.preventDefault();
-      // setLoader(true);
-      setName('')
-      setEmail('')
-      setMessage('')
-  }
+  const navigate = useNavigate();
+  const [ sending, setSending ] = useState(false);
+  const [ loading, setLoading ] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, e.target, process.env.REACT_APP_PUBLIC_KEY)
+    .then((result) => {
+        setSending(true)
+        setTimeout(() => {
+          setLoading(true)
+        }, 2000);
+        setTimeout(() => {
+          navigate('/')
+        }, 3000);
+    }, (error) => {
+        console.log(error.text);
+    });
+}
 
   return (
-    <div className="max-w-5xl mx-auto py-16">
+    <div className="w-full mx-auto py-16">
+      <form 
+        onSubmit={sendEmail}
+        className="mt-16 flex flex-col items-center"
+        // style={{transition: 'all 4s ease-in-out'}}
+        method="post" 
+        action="">
+          <input 
+            name="user_name" 
+            type="text" 
+            className="h-10 lg:w-700 w-full bg-transparent outline-none border-b-2 border-b-slate-200 text-blackMenu dark:text-whiteProject text-lg mb-4"  
+            placeholder="Your Name" 
+            required 
+          />
+          <input 
+            name="user_email"  
+            type="email" 
+            className="h-10 lg:w-700 w-full bg-transparent outline-none border-b-2 border-b-slate-200 text-blackMenu dark:text-[rgb(246,246,246)] text-lg mb-4" 
+            placeholder="Your Email" 
+            required 
+          />
+          <textarea 
+            name="user_message"
+            className=" min-h-[12rem] lg:w-700 w-full bg-transparent outline-none border-b-2 border-b-slate-200 text-blackMenu dark:text-whiteProject text-lg mb-4" 
+            placeholder="Your message goes here!" 
+            rows="4" 
+            required
+          >
+          </textarea>
           <div>
-            <form 
-                onSubmit={()=>handleSubmit}
-                className="mt-16 flex flex-col items-center"
-                // style={{transition: 'all 4s ease-in-out'}}
-                method="post" 
-                action="">
-                <input 
-                  name="name" 
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  type="text" 
-                  className="h-10 lg:w-700 w-full bg-transparent outline-none border-b-2 border-b-slate-200 text-blackMenu dark:text-bgProyects text-lg mb-4"  
-                  placeholder="Your Name" 
-                  required />
-                <input 
-                  name="email" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}   
-                  type="email" 
-                  className="h-10 lg:w-700 w-full bg-transparent outline-none border-b-2 border-b-slate-200 text-blackMenu dark:text-bgProyects text-lg mb-4" 
-                  placeholder="Your Email" 
-                  required />
-                <textarea 
-                  name="message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="lg:w-700 w-full bg-transparent outline-none border-b-2 border-b-slate-200 text-blackMenu dark:text-bgProyects text-lg mb-4" 
-                  placeholder="Your message goes here!" 
-                  rows="4" 
-                  required>
-                </textarea>
-                <input 
-                  type="submit" 
-                  className="border-transparent text-base font-bold text-white dark:text-blackMenu tracking-wider h-12 mt-5 rounded-sm px-5 bg-blackMenu dark:bg-whiteProject hover:bg-orangeSoft hover:text-blackProject hover:dark:bg-orangeSoft" 
-                  value="SEND MESSAGE"
-                  />
-            </form>
+            <input 
+              id='submit'
+              type="submit" 
+              className={sending ? 'hidden' : 'border-transparent text-base font-bold text-white dark:text-blackMenu tracking-wider h-12 w-40 mt-5 rounded-sm px-5 bg-blackMenu dark:bg-whiteProject hover:bg-orangeSoft hover:text-blackProject hover:dark:bg-orangeSoft cursor-pointer'}
+              value='Send Message'
+            />
+            <div className={sending ? 'inline-block text-black dark:text-white text-center' : 'hidden'} >
+              {loading ? 
+              <span><span className='text-[#626eff] text-2xl p-6 mt-6'>Message sent</span><br/> I will reply as soon as possible</span> 
+              : <Loading/>}
+            </div>
           </div>
+      </form>
     </div>
   )
 }
@@ -100,7 +125,7 @@ function Contact() {
             transition={transition}
           >
             <div className='container'>
-              <div className='min-h-90 flex flex-col justify-center'>
+              <div className='min-h-90 flex flex-col justify-center relative'>
                 <BannerContact/>
                 <BannerContactLink/>
               </div>
