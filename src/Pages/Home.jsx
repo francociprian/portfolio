@@ -76,7 +76,7 @@ return (
       animate={{ opacity: 1 }}
       transition={transition}
     >
-      <div>
+      <div className='min-h-[200vh]'>
         <FirstLine />
         <div className="banner" >
           <ScrollForWork />
