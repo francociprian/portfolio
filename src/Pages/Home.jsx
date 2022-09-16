@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, useTransform, useScroll, AnimatePresence } from "framer-motion";
 import { Link } from 'react-router-dom';
 import ArrowAnimated from '../components/ArrowAnimated';
-import { isMobile } from 'react-device-detect';
 
 // const styleStrokeLight = {
 //   WebkitTextStroke: '1px black',
@@ -13,9 +12,9 @@ import { isMobile } from 'react-device-detect';
 const FirstLine = () => {
   return(
     <div className='container'>
-      <div className='flex flex-col max-w-85 mx-auto min-h-90 justify-center pt-8 480Max:min-h-screen'>
+      <div className='flex flex-col max-w-85 mx-auto min-h-90 lg:min-h-[85vh] justify-center pt-8 480Max:min-h-screen'>
         <h1 
-          className='mb-10 2xl:text-[6.6rem] xl:text-[5.5rem] md:text-[4.5rem] font-anderson text-blackProject dark:text-whiteProject 480Max:text-4xl xl:leading-none' 
+          className='1216Max:mb-10 2xl:text-[6.6rem] xl:text-[5.5rem] md:text-[4.5rem] 480Max:text-5xl  font-anderson text-blackProject dark:text-whiteProject xl:leading-none' 
         >
           <span >Welcome to my portfolio.{' '}I'm</span> 
           <span className=' text-[#626eff]'> Franco Ciprian </span>
@@ -54,7 +53,7 @@ const ScrollForWork = () => {
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
   return (
-    <motion.div style={{ opacity }} className="absolute top-[-20px] left-[-168px] text-0.75rem flex flex-col items-center " >
+    <motion.div style={{ opacity }} className="absolute top-[0] left-[-168px] text-0.75rem flex flex-col items-center " >
       <span className='block mt-3 mb-0 mx-auto text-blackProject dark:text-[#fef6f6e8]'>MORE</span>
       <span className="block w-[1px] bg-blackProject dark:bg-[#fef6f6e8] h-[48rem]"></span>
     </motion.div>
@@ -63,9 +62,6 @@ const ScrollForWork = () => {
 
 const Home = () => {
   const transition = { duration: 1, ease: [0.6, -0.05, 0.01, 0.9] }
-  useEffect(() => {
-    !isMobile && window.scrollTo(0,1)
-  }, [])
 
 return (
   <AnimatePresence
