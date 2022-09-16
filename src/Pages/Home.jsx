@@ -14,7 +14,7 @@ const FirstLine = () => {
     <div className='container'>
       <div className='flex flex-col max-w-85 mx-auto min-h-90 justify-center pt-8 480Max:min-h-screen'>
         <h1 
-          className='mb-10 2xl:text-[6.6rem] xl:text-[5.5rem] md:text-[4.5rem] font-anderson text-blackProject dark:text-whiteProject 480Max:text-4xl' 
+          className='mb-10 2xl:text-[6.6rem] xl:text-[5.5rem] md:text-[4.5rem] font-anderson text-blackProject dark:text-whiteProject 480Max:text-4xl xl:leading-none' 
         >
           <span >Welcome to my portfolio.{' '}I'm</span> 
           <span className=' text-[#626eff]'> Franco Ciprian </span>
