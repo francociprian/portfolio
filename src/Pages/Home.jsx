@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useTransform, useScroll, AnimatePresence } from "framer-motion";
 import { Link } from 'react-router-dom';
 import ArrowAnimated from '../components/ArrowAnimated';
@@ -62,6 +62,9 @@ const ScrollForWork = () => {
 
 const Home = () => {
   const transition = { duration: 1, ease: [0.6, -0.05, 0.01, 0.9] }
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
 
 return (
   <AnimatePresence
