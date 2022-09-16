@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 import { motion, useTransform, useScroll, AnimatePresence } from "framer-motion";
 import { Link } from 'react-router-dom';
-import { BsArrowDown } from 'react-icons/bs';
+import ArrowAnimated from '../components/ArrowAnimated';
 
-const styleStrokeLight = {
-  WebkitTextStroke: '1px black',
-  WebkitTextFillColor: '#eee'
-  // WebkitTextFillColor: '#a7aefa'
-}
- 
+// const styleStrokeLight = {
+//   WebkitTextStroke: '1px black',
+//   WebkitTextFillColor: '#eee'
+//   WebkitTextFillColor: '#a7aefa'
+// }
+
 const FirstLine = () => {
   return(
     <div className='container'>
       <div className='flex flex-col max-w-85 mx-auto min-h-90 justify-center pt-8 480Max:min-h-screen'>
         <h1 
-          className='mb-10 2xl:text-[6.5rem] xl:text-7xl md:text-6xl font-anderson text-blackProject dark:text-whiteProject 480Max:text-4xl' 
+          className='mb-10 2xl:text-[6.6rem] xl:text-[5.5rem] md:text-[4.5rem] font-anderson text-blackProject dark:text-whiteProject 480Max:text-4xl' 
         >
           <span >Welcome to my portfolio.{' '}I'm</span> 
           <span className=' text-[#626eff]'> Franco Ciprian </span>
           <span >and I build websites, have a lot of fun with it</span>
         </h1>
-        <div className='md:hidden flex justify-center mt-24 text-blackProject dark:text-whiteProject animate-arrow-bounce'>
-          <BsArrowDown className='h-6 w-6' />
+        <div className='hidden 1216Max:block pt-32 text-blackProject dark:text-whiteProject'>
+          <ArrowAnimated/>
         </div>
       </div>
     </div>
@@ -53,9 +53,9 @@ const ScrollForWork = () => {
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
   return (
-    <motion.div style={{ opacity }} className="absolute top-0 left-[-168px] text-0.75rem flex flex-col items-center " >
+    <motion.div style={{ opacity }} className="absolute top-[-20px] left-[-168px] text-0.75rem flex flex-col items-center " >
       <span className='block mt-3 mb-0 mx-auto text-blackProject dark:text-[#fef6f6e8]'>MORE</span>
-      <span className=" block w-[1px] bg-blackProject dark:bg-[#fef6f6e8] h-[48rem]"></span>
+      <span className="block w-[1px] bg-blackProject dark:bg-[#fef6f6e8] h-[48rem]"></span>
     </motion.div>
   )
 }

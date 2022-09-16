@@ -21,6 +21,7 @@ module.exports = {
       },
       width: {
         '700': '700px',
+        '1|3': '33.3333333333px',
       },
       height: {
         '2px': '2px',
@@ -28,6 +29,7 @@ module.exports = {
         '60vh':'60vh',
         '80vh':'80vh',
         '90vh':'90vh',
+        '1|3': '33.3333333333px',
       },
       minHeight: {
         'min': '100vh',
@@ -98,14 +100,37 @@ module.exports = {
       },
       animation:{
         'arrow-bounce': 'arrow-bounce 1.5s infinite',
+        'blob-1-anim': 'blob-1-anim 3s cubic-bezier(0.77, 0, 0.175, 1) infinite',
+        'blob-2-anim': 'blob-2-anim 3s cubic-bezier(0.77, 0, 0.175, 1) infinite',
+        'scrolly': 'scrolly 3s cubic-bezier(0.77, 0, 0.175, 1) forwards infinite',
       },
       keyframes:{
         'arrow-bounce': {
           '0%, 100%': { transform: 'translateY(-50%)' },
           '50%': { transform: 'translateY(0)' },
         },
+        'blob-1-anim': {
+          '0%': { transform: 'translateX(-50%) translateY(0)' },
+          '14%': { transform: 'translateX(-50%) translateY(-8px)' },
+          '24%': { transform:'translateX(-50%) translateY(0)' },
+          '100%': { transform: 'translateX(-50%) translateY(0)' },
+        },
+        'blob-2-anim': {
+          '0%': { transform: 'scale(1) translate(-50%, 10px)' },
+          '30%': { transform: 'scale(1) translate(-50%, 10px)' },
+          '70%': { transform: 'scale(1) translate(-50%, 10px)' },
+          '95%': { transform: 'scale(1) translate(-50%, 26px)' },
+          '100%': { transform: 'scale(1) translate(-50%, 10px)' },
+        },
+        "scrolly": {
+          '0%': {  transform: 'translate3d(0, -150%, 0) rotateX(90deg) scale(0.5) skewX(3deg)' },
+          '30%': {  transform: 'translate3d(0, 0, 0) rotateX(0deg) scale(1) skewX(0deg)' },
+          '70%': {  transform: 'translate3d(0, 0, 0) rotateX(0deg) scale(1) skewX(0deg)' },
+          '95%': {  transform: 'translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg)' },
+          '100%': {  transform: 'translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg)' },
+        }
       }
-    },
+    }, 
   },
   plugins: [],
 }
