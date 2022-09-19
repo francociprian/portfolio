@@ -27,19 +27,34 @@ const Proyectos = [
     urlImage1 : "https://i.postimg.cc/GhGGT04H/social-Links1.png",
     urlImage2 : "https://i.postimg.cc/GpHpYYXq/social-Links2.png",
     urlImage3 : "https://i.postimg.cc/rm5MC9xC/social-Links3.png",
+    urlImage4 : 'https://i.postimg.cc/sfcq0ypr/socialtree.png',
     description: 'SocialTree is a social network that allows you to share your links with other users, it was developed using ReactJS, Firebase for the database and ChakraUI for the design.'
   },
   {
     title: "Untraceable",
     technologies : ["HTML", "Bootstrap" ,"SCSS", "JavaScript"],
-    mediaUrl: 'https://i.postimg.cc/VNC3YNBM/untraceable.webp',
+    mediaUrl: 'https://i.postimg.cc/GhxpBPjP/untraceable.webp',
     urlDeploy: 'https://untraceable.netlify.app/',
     gitHub:'https://github.com/francociprian/UNTRACEABLE',
     details : 'mt-64 mx-auto mb-48',
     urlImage1 : "https://i.postimg.cc/3xrXbxSv/mobile1.png",
     urlImage2 : "https://i.postimg.cc/D0JvzLwX/mobile3.png",
     urlImage3 : "https://i.postimg.cc/m2g3mr6F/mobile2.png",
+    urlImage4 : "https://i.postimg.cc/rpxrd20z/untraceable1.png",
+    urlImage5 : "https://i.postimg.cc/rwSVxVj6/untraceable2.png",
     description: 'Development of an e-commerce, using HTML for the structure, Bootstrap and SCSS for the visual section, the products come from a JSON that simulates the operation of an API. The BEM methodology was used, and the project was managed using GIT.'
+  },
+  {
+    title: "Weather with Franco",
+    technologies : ["ReactJS", "TailwindCSS", "OpenWeatherAPI", "ChartJS"],
+    mediaUrl:'https://i.postimg.cc/RVYHQZTF/Weather-with-franco.png',
+    urlDeploy: 'https://weather-with-franco.vercel.app/',
+    gitHub:'https://github.com/francociprian/Weather-with-Franco',
+    details : 'mt-64 mx-auto mb-48',
+    urlImage1 : "https://i.postimg.cc/rFkDGyzG/weather-With-Franco-1.png",
+    urlImage2 : "https://i.postimg.cc/d3615dSb/weather-With-Franco-2.png",
+    urlImage3 : "https://i.postimg.cc/Y0nqw7f0/weather-With-Franco-3.png",
+    description: 'Weather with Franco is an application that allows knowing the weather of a city, it was developed using ReactJS, consuming OpenWeatherAPI for the data, ChartJS and TailwindCSS for the design.'
   },
   {
     title: "TodoList",
@@ -65,18 +80,6 @@ const Proyectos = [
     urlImage3 : calculadora,
     description: 'Calculator is a simple application that allows you to make basic calculations, it was developed using ReactJS, CSS for the design and mathJS for the calculations.'
   },
-  {
-    title: "weather-with-franco",
-    technologies : ["ReactJS", "TailwindCSS", "OpenWeatherAPI", "ChartJS"],
-    mediaUrl:'https://i.postimg.cc/RVYHQZTF/Weather-with-franco.png',
-    urlDeploy: 'https://weather-with-franco.vercel.app/',
-    gitHub:'https://github.com/francociprian/Weather-with-Franco',
-    details : 'mt-64 mx-auto mb-48',
-    urlImage1 : "https://i.postimg.cc/rFkDGyzG/weather-With-Franco-1.png",
-    urlImage2 : "https://i.postimg.cc/d3615dSb/weather-With-Franco-2.png",
-    urlImage3 : "https://i.postimg.cc/Y0nqw7f0/weather-With-Franco-3.png",
-    description: 'Weather with Franco is a simple application that allows you to know the weather of a city, it was developed using ReactJS and CSS for the design.'
-  },
 ]
 
 const transition = { duration: 1.5, ease: [0.6, -0.05, 0.01, 0.9] }
@@ -101,8 +104,8 @@ function Projects() {
               transition={transition}
             >
               <div 
-                className='flex flex-col items-center min-h-[12000px]' 
-                // ref={container} 
+                className='flex flex-col items-center' 
+                style={{minHeight: '12500px'}}
                 >
                   <div className='my-24 max-w-6xl'>
                     {Proyectos.map((items, index) => {
@@ -110,37 +113,50 @@ function Projects() {
                         <div key={index} className='flex flex-col items-center my-20'>
                           <div className={`project-header ${items.details}`}>
                             <div className="container">
-                              <div className="project-inner flex justify-between w-[1000px] mx-auto">
-                                <div><h5 className='text-blackProject dark:text-whiteProject text-2xl m-0 font-normal underline underline-offset-8'>{items.title}</h5></div>
-                                <div className="project-description">
-                                  <p className='text-[#9c9c9e] m-0 font-light w-[410px] leading-6'>
-                                    {items.description}
-                                  </p>
-                                </div>
-                                <div>
-                                  <ul className='text-[#9c9c9e] dark:text-[#525356]'>
-                                    <span className='text-blackProject dark:text-whiteProject'>Technologies Used:</span>
-                                    {items.technologies.map((items)=>{
-                                      return <li className='text-sm list-none font-light mb-1'>{items}</li>
-                                    })}
-                                  </ul>
+                              <div className="project-inner flex flex-col justify-between w-[1000px] mx-auto">
+                                <h5 className='text-blackProject dark:text-whiteProject text-2xl m-0 font-normal underline underline-offset-8 pb-10'>{items.title}</h5>
+                                <div className='flex flex-col justify-between items-start md:flex-row md:items-center'>
+                                  <div className="project-description">
+                                    <p className='text-textProject m-0 font-light w-[410px] leading-6'>
+                                      {items.description}
+                                    </p>
+                                  </div>
+                                  <div>
+                                    <ul className='text-textProject dark:text-textProjectDark'>
+                                      <span className='text-blackProject dark:text-whiteProject'>Technologies Used:</span>
+                                      {items.technologies.map((items)=>{
+                                        return <li className='text-sm list-none font-light mb-1'>{items}</li>
+                                      })}
+                                    </ul>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div>
                             <div className='w-full flex items-center pb-10 justify-center sm:justify-end gap-8'>
-                              <a href={items.gitHub} className='flex items-center gap-1 relative text-[#9c9c9e] hover:text-[#626eff]' target="_blank" rel="noreferrer" >
+                              <a href={items.gitHub} className='flex items-center gap-1 relative text-textProject hover:text-[#626eff]' target="_blank" rel="noreferrer" >
                                 <BsGithub className='h-4 w-4'/><span>github</span>
                               </a>
-                              <a href={items.urlDeploy} className='flex items-center gap-1 relative pr-2 text-[#9c9c9e] hover:text-[#626eff]' target="_blank" rel="noreferrer" >
+                              <a href={items.urlDeploy} className='flex items-center gap-1 relative pr-2 text-textProject hover:text-[#626eff]' target="_blank" rel="noreferrer" >
                                 <HiOutlineExternalLink className='h-[1.15rem] w-[1.15rem]'/><span>deploy</span>
-                                {/* <BsArrowRight/> */}
                               </a>
                             </div>
-                            <img src={items.mediaUrl} alt={items.title} className='pb-4' />
+                            <div className='w-full flex flex-col justify-center items-center gap-4'>
+                              <div className='w-full xl:p-10 lg:p-8 lg:bg-imageProject lg:dark:bg-imageProjectDark bg-transparent'>
+                                <img src={items.mediaUrl} alt={items.title} className='mb-4 rounded-lg border-[1px] border-zinc-800' />
+                              </div>
+                              {items.urlImage4 && 
+                                <div className='w-full xl:p-10 lg:p-8 lg:bg-imageProject lg:dark:bg-imageProjectDark bg-transparent'>
+                                  <img src={items.urlImage4} alt={items.title} className='mb-4 rounded-lg border-[1px] border-zinc-800' />
+                              </div>}
+                              {items.urlImage5 && 
+                                <div className='w-full xl:p-10 lg:p-8 lg:bg-imageProject lg:dark:bg-imageProjectDark bg-transparent'>
+                                  <img src={items.urlImage5} alt={items.title} className='mb-4 rounded-lg border-[1px] border-zinc-800' />
+                              </div>}
+                            </div>
                             <div className='flex justify-evenly gap-4 1024Max:flex-col 1024Max:items-center 1024Max:gap-8 my-40 relative'>
-                              <div className='absolute left-50 bottom-12 bg-[#ebeaea] dark:bg-[#525356] w-1/2 h-full z-[-99]'></div>
+                              <div className='absolute left-50 bottom-12 bg-imageProject dark:bg-imageProjectDark w-1/2 h-full z-[-99]'></div>
                               <img src={items.urlImage1} alt={items.title} className='w-1/5 1024Max:w-4/5 rounded-3xl border-[2px] border-zinc-800 '/>
                               <img src={items.urlImage2} alt={items.title} className='w-1/5 1024Max:w-4/5 rounded-3xl border-[2px] border-zinc-800 '/>
                               <img src={items.urlImage3} alt={items.title} className='w-1/5 1024Max:w-4/5 rounded-3xl border-[2px] border-zinc-800 '/>

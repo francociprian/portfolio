@@ -53,6 +53,12 @@ module.exports = {
         blackMenu: '#191919',
         blackMenuDark: '#212121',
         neonBlue: 'rgba(98, 110, 255,0.3)',
+
+        imageProject: 'rgba(211, 204, 202,0.2)',
+        imageProjectDark:'rgba(30,30,30,0.8)',
+        textProject: '#9c9c9e',
+        textProjectDark: '#525356',
+
         orangeSoft:'#fdddad',
         html: '#e34f26',
         css: '#2965f1',
