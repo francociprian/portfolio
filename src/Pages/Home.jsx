@@ -11,10 +11,9 @@ import ArrowAnimated from '../components/ArrowAnimated';
 
 const FirstLine = () => {
   return(
-    <div className='container'>
-      <div className='flex flex-col max-w-85 mx-auto min-h-90 lg:min-h-[85vh] justify-center pt-8 480Max:min-h-screen'>
-        <h1 
-          className='1216Max:mb-10 2xl:text-[6.6rem] xl:text-[5.5rem] md:text-[4.5rem] 480Max:text-5xl  font-anderson text-blackProject dark:text-whiteProject xl:leading-none' 
+    <div className='container h-screen md:h-[80vh] flex items-center'>
+      <div className='lg:mt-8 mt-32'>
+        <h1 className='1216Max:mb-10 2xl:text-[6.6rem] xl:text-[5.5rem] md:text-[4.5rem] 480Max:text-5xl  font-anderson text-blackProject dark:text-whiteProject xl:leading-none' 
         >
           <span >Welcome to my portfolio.{' '}I'm</span> 
           <span className=' text-[#626eff]'> Franco Ciprian </span>
