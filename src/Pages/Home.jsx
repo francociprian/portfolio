@@ -32,17 +32,18 @@ const SecondLine = () => {
   const [hovered, setHovered] = useState(false)
   return (
     <div className="container">
-      <h1 className="main-headline text-blackProject dark:text-[#fef6f6e8]">
+      <h1 
+        className="main-headline text-blackProject dark:text-[#fef6f6e8] font-extralight mb-32 leading-[4.5rem]">
         <motion.span animate={{ opacity: hovered ? 0.2 : 1 }}>
-          I am a <span className="semi-bold">Front End Developer</span> with a bit of
+          I am a <span className="font-normal">Front End Developer</span> with a bit of
           backend experience, primarily working with ReactJS. My taste for Design gave me a great sense of aesthetics, which is reflected in{" "}
         </motion.span>
         <motion.span
           onHoverStart={() => setHovered(!hovered)}
           onHoverEnd={() => setHovered(!hovered)}
-          className="semi-bold underline"
+          className='font-normal underline hover:cursor-pointer'
         >
-          <Link to='/projects' className='no-hover'>my projects.</Link>
+          <Link to='/projects'>my projects.</Link>
         </motion.span>{" "}
       </h1>
     </div>
@@ -76,9 +77,9 @@ return (
       animate={{ opacity: 1 }}
       transition={transition}
     >
-      <div className='min-h-[200vh]'>
+      <div>
         <FirstLine />
-        <div className="banner" >
+        <div className="banner relative h-screen flex items-center w-[1080px] ml-80" >
           <ScrollForWork />
           <div className="inner-banner">
             <SecondLine />
