@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from '../context/themeContext'
+import { ThemeContext } from '../components/context/themeContext'
 import { BsFillBrightnessHighFill, BsMoonFill } from "react-icons/bs";
 
 
