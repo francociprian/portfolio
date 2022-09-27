@@ -26,26 +26,28 @@ function Projects() {
       >
         <div 
           className='flex flex-col items-center' 
-          style={{minHeight: '12500px'}}
+          // style={{minHeight: '13500px'}}
         >
-          {projects.map((project) => (
-            <ProjectComponent 
-              key={project.title}
-              title={project.title} 
-              details={project.details}
-              description={project.description} 
-              techStack={project.techStack} 
-              github={project.github} 
-              urlDeploy={project.urlDeploy}
-              imageMain={project.imageMain}
-              imageMain2={project.imageMain2}
-              imageMain3={project.imageMain3}
-              imageMobile1={project.imageMobile1}
-              imageMobile2={project.imageMobile2}
-              imageMobile3={project.imageMobile3}                        
-            />
-            ))
-          }  
+          <div className='mt-[4.5rem] mb-24 max-w-6xl min-h-[13500px]'>
+            {projects.map((project) => (
+              <ProjectComponent 
+                key={project.title}
+                title={project.title} 
+                details={project.details}
+                description={project.description} 
+                techStack={project.techStack} 
+                github={project.github} 
+                urlDeploy={project.urlDeploy}
+                imageMain={project.imageMain}
+                imageMain2={project.imageMain2}
+                imageMain3={project.imageMain3}
+                imageMobile1={project.imageMobile1}
+                imageMobile2={project.imageMobile2}
+                imageMobile3={project.imageMobile3}                        
+              />
+              ))
+            }  
+          </div>
         </div>
       </motion.div>
     </AnimatePresence>

@@ -135,6 +135,10 @@ module.exports = {
           '95%': {  transform: 'translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg)' },
           '100%': {  transform: 'translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg)' },
         }
+      },
+      boxShadow: {
+        'ShadowImages': '10px 10px 20px -10px rgba(0,0,0,0.23)',
+        'ShadowImagesDark': '8px 12px 10px -4px rgba(255,255,255,0.03)',
       }
     }, 
   },
