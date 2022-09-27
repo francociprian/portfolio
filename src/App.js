@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef} from 'react';
 import './App.css';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion"
-import useWindowSize from './Hooks/useWidowsSize'
+import useWindowSize from './components/Hooks/useWidowsSize'
 import ToogleTheme from './components/ToogleTheme'
 
 //PAge components
