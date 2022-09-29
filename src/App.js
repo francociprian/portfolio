@@ -66,7 +66,7 @@ function App() {
     const difference = data.current - data.rounded
     const acceleration = difference / size.width
     const velocity = +acceleration
-    const skew = velocity * `${isMobile ? 0 : 2}`
+    const skew = velocity * 5
 
 
     //Assign skew and smooth scrolling to the scroll container
