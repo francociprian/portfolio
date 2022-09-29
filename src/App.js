@@ -41,12 +41,11 @@ function App() {
     requestAnimationFrame(() => skewScrolling())
   }, [])
 
-  //Set the height of the body to the height of the scrolling div
+  // Set the height of the body to the height of the scrolling div
   const setBodyHeight = () => {
     document.body.style.height = `${
       scrollContainer.current.getBoundingClientRect().height
     }px`
-    // console.log(scrollContainer)
   }
 
   const [state, setState] = useState({
@@ -84,7 +83,9 @@ function App() {
 
   //set the height of the body.
   useEffect(() => {
-    setBodyHeight()
+    if(!isMobile){
+      return setBodyHeight()
+    }
   }, [size, finishLoading, location])
 
   const [menuState, setMenuState] = useState(false)
@@ -96,15 +97,18 @@ function App() {
   }, [menuState])
 
 
-
   return (
       <>
-        <motion.div exit={{ opacity: 0 }} ref={app} className="fixed top-0 left-0 h-full w-full overflow-hidden">
+        <motion.div 
+          exit={{ opacity: 0 }} 
+          className={`${isMobile ?' ' : 'fixed top-0 left-0 h-full w-full overflow-hidden'}`}
+          {...(isMobile ? {} : {ref: app})}
+          >
           <div
-            style={{
+            {...(isMobile ? {} : {ref: scrollContainer})} 
+            {...(isMobile ? {} : {style: {
               transform: `translate3d(0, -${state.scroll}px, 0) skewY(${state.skew}deg)`,
-            }}
-            ref={scrollContainer}
+            }})}
             className="pb-8"
           >
             <AnimatePresence>
@@ -132,7 +136,6 @@ function App() {
             )}
           </AnimatePresence>
         </div>
-        {/* {!isMobile && <SiteVersion />} */}
         {!isMobile && (finishLoading ? null : <SiteVersion />)}
       </motion.div>
     </>
