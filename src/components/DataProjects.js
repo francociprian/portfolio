@@ -53,6 +53,20 @@ export const projects = [
     description: 'Weather with Franco is an application that allows knowing the weather of a city, it was developed using ReactJS, consuming OpenWeatherAPI for the data, ChartJS and TailwindCSS for the design.'
   },
   {
+    title: "Todov2",
+    techStack : "ReactJS, CSS, tailwindCSS, HeadlessUI, Hello-pangea/dnd",
+    imageMain : '../../img/mainImages/todov2-1.webp',
+    imageMain2: '../../img/mainImages/todov2-2.webp',
+    imageMain3: '../../img/mainImages/todov2-4.webp',
+    urlDeploy: 'https://fctodolist.vercel.app',
+    github:'https://github.com/francociprian/to-do',
+    details : 'mx-auto mb-12',
+    imageMobile1 : "../../img/mobileImages/todov2.webp",
+    imageMobile2 : "../../img/mobileImages/todov2.webp",
+    imageMobile3 : "../../img/mobileImages/todov2.webp",
+    description: 'Todov2 is a simple application that allows you to add tasks, it was developed using ReactJS and tailwindCSS for the design, the application includes a drag and drop, they can be edited, archived and deleted.'
+  },
+  {
     title: "TodoList",
     techStack : "ReactJS, CSS",
     imageMain: '../../img/mainImages/todolistMain.webp',
@@ -64,16 +78,16 @@ export const projects = [
     imageMobile3 : "../../img/mobileImages/taskList3.webp",
     description: 'TodoList is a simple application that allows you to add tasks, remove them from the list or mark them as complete. It was developed using ReactJS and CSS for layout.'
   },
-  {
-    title: "Calculator",
-    techStack : "ReactJS, CSS, MATH.js",
-    imageMain: '../../img/mainImages/calculadoraMain.webp',
-    urlDeploy: 'https://calculatorfrancociprian.netlify.app/',
-    github:'https://github.com/francociprian/React-Calculator',
-    details : 'mx-auto mb-12',
-    imageMobile1 : "../../img/mobileImages/calculator.webp",
-    imageMobile2 : "../../img/mobileImages/calculator.webp",
-    imageMobile3 : "../../img/mobileImages/calculator1.gif",
-    description: 'Calculator is a simple application that allows you to make basic calculations, it was developed using ReactJS, CSS for the design and mathJS for the calculations.'
-  },
+  // {
+  //   title: "Calculator",
+  //   techStack : "ReactJS, CSS, MATH.js",
+  //   imageMain: '../../img/mainImages/calculadoraMain.webp',
+  //   urlDeploy: 'https://calculatorfrancociprian.netlify.app/',
+  //   github:'https://github.com/francociprian/React-Calculator',
+  //   details : 'mx-auto mb-12',
+  //   imageMobile1 : "../../img/mobileImages/calculator.webp",
+  //   imageMobile2 : "../../img/mobileImages/calculator.webp",
+  //   imageMobile3 : "../../img/mobileImages/calculator1.gif",
+  //   description: 'Calculator is a simple application that allows you to make basic calculations, it was developed using ReactJS, CSS for the design and mathJS for the calculations.'
+  // },
 ]
