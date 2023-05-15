@@ -128,7 +128,7 @@ function App() {
                       The new is coming....
                     </h1>
                     <div className='absolute bottom-6 font-sans text-sm'>
-                      <p className='text-gray-500'>Visit my <a className='hover:underline text-black uppercase' href='https://github.com/francociprian'>github</a></p>
+                      <p className='text-gray-500'>Visit my <a className='hover:underline text-black dark:text-slate-400 uppercase' href='https://github.com/francociprian'>github</a></p>
                     </div>
                   </div>
                 </motion.div>
