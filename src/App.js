@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion"
@@ -43,9 +43,9 @@ function App() {
 
   // Set the height of the body to the height of the scrolling div
   const setBodyHeight = () => {
-    document.body.style.height = `${
-      scrollContainer.current.getBoundingClientRect().height
-    }px`
+    // document.body.style.height = `${scrollContainer.current.getBoundingClientRect().height}px`
+
+    document.body.style.height = '100vh'
   }
 
   const [state, setState] = useState({
@@ -83,7 +83,7 @@ function App() {
 
   //set the height of the body.
   useEffect(() => {
-    if(!isMobile){
+    if (!isMobile) {
       return setBodyHeight()
     }
   }, [size, finishLoading, location])
@@ -98,45 +98,62 @@ function App() {
 
 
   return (
-      <>
-        <motion.div 
-          exit={{ opacity: 0 }} 
-          className={`${isMobile ?' ' : 'fixed top-0 left-0 h-full w-full overflow-hidden'}`}
-          {...(isMobile ? {} : {ref: app})}
-          >
-          <div
-            {...(isMobile ? {} : {ref: scrollContainer})} 
-            {...(isMobile ? {} : {style: {
+    <>
+      <motion.div
+        exit={{ opacity: 0 }}
+        className={`${isMobile ? ' ' : 'fixed top-0 left-0 h-full w-full overflow-hidden'}`}
+        {...(isMobile ? {} : { ref: app })}
+      >
+        <div
+          {...(isMobile ? {} : { ref: scrollContainer })}
+          {...(isMobile ? {} : {
+            style: {
               transform: `translate3d(0, -${state.scroll}px, 0) skewY(${state.skew}deg)`,
-            }})}
-            className="pb-8"
-          >
-            <AnimatePresence>
-              {finishLoading ? 
+            }
+          })}
+          className="pb-8"
+        >
+          <AnimatePresence>
+            {finishLoading ?
               (<Loading />)
-              : 
-              (<>
-                <Header setMenuState={setMenuState} />
-                <Menu menuState={menuState} setMenuState={setMenuState} />
+              :
+              (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <main>
-                    <Routes>
-                      <Route path="/" element={<Home />} />
-                      <Route path="/projects" element={<Projects />} />
-                      <Route path="/contact" element={<Contact />} />
-                      <Route path='*' element={<NotFound/>}/>
-                    </Routes>
-                  </main>
+                  <div className='flex justify-center items-center h-screen w-full relative'>
+                    <h1 className="text-center text-xl uppercase tracking-wider text-blackProject dark:text-slate-400">
+                      The new is coming....
+                    </h1>
+                    <div className='absolute bottom-6 font-sans text-sm'>
+                      <p className='text-gray-500'>Visit my <a className='hover:underline text-black uppercase' href='https://github.com/francociprian'>github</a></p>
+                    </div>
+                  </div>
                 </motion.div>
-              </>
-            )}
+                // <>
+                //   <Header setMenuState={setMenuState} />
+                //   <Menu menuState={menuState} setMenuState={setMenuState} />
+                //   <motion.div
+                //     initial={{ opacity: 0 }}
+                //     animate={{ opacity: 1 }}
+                //     exit={{ opacity: 0 }}
+                //   >
+                //     <main>
+                //       <Routes>
+                //         <Route path="/" element={<Home />} />
+                //         <Route path="/projects" element={<Projects />} />
+                //         <Route path="/contact" element={<Contact />} />
+                //         <Route path='*' element={<NotFound/>}/>
+                //       </Routes>
+                //     </main>
+                //   </motion.div>
+                // </>
+              )}
           </AnimatePresence>
         </div>
-        {!isMobile && (finishLoading ? null : <SiteVersion />)}
+        {/* {!isMobile && (finishLoading ? null : <SiteVersion />)} */}
       </motion.div>
     </>
   )
@@ -146,7 +163,7 @@ const SiteVersion = () => {
   return (
     <div className='fixed right-1 bottom-12 z-99 flex items-center text-blackProject dark:text-whiteProject '>
       <span className="text-0.75rem font-light">francociprian 2022</span>
-      <ToogleTheme/>
+      <ToogleTheme />
     </div>
   )
 }
