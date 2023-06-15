@@ -117,43 +117,28 @@ function App() {
             {finishLoading ?
               (<Loading />)
               :
-              (
+              (<>
+                <Header setMenuState={setMenuState} />
+                <Menu menuState={menuState} setMenuState={setMenuState} />
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <div className='flex justify-center items-center h-screen w-full relative'>
-                    <h1 className="text-center text-xl uppercase tracking-wider text-blackProject dark:text-slate-400">
-                      The new is coming....
-                    </h1>
-                    <div className='absolute bottom-6 font-sans text-sm'>
-                      <p className='text-gray-500'>Visit my <a className='hover:underline text-black dark:text-slate-400 uppercase' href='https://github.com/francociprian'>github</a></p>
-                    </div>
-                  </div>
+                  <main>
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/projects" element={<Projects />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path='*' element={<NotFound />} />
+                    </Routes>
+                  </main>
                 </motion.div>
-                // <>
-                //   <Header setMenuState={setMenuState} />
-                //   <Menu menuState={menuState} setMenuState={setMenuState} />
-                //   <motion.div
-                //     initial={{ opacity: 0 }}
-                //     animate={{ opacity: 1 }}
-                //     exit={{ opacity: 0 }}
-                //   >
-                //     <main>
-                //       <Routes>
-                //         <Route path="/" element={<Home />} />
-                //         <Route path="/projects" element={<Projects />} />
-                //         <Route path="/contact" element={<Contact />} />
-                //         <Route path='*' element={<NotFound/>}/>
-                //       </Routes>
-                //     </main>
-                //   </motion.div>
-                // </>
+              </>
               )}
           </AnimatePresence>
         </div>
-        {/* {!isMobile && (finishLoading ? null : <SiteVersion />)} */}
+        {!isMobile && (finishLoading ? null : <SiteVersion />)}
       </motion.div>
     </>
   )
