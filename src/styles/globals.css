@@ -2,26 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+    @font-face {
+      font-family: "EngraversGothicBT";
+      src: url("/Typography/EngraversGothicBT.woff2") format("woff2");
+      font-weight: normal;
+    }
+    @font-face {
+      font-family: "Sohne";
+      src: url("/Typography/sohne--extrabold.woff2") format("woff2");
+      font-weight: normal;
+    }
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  
+  /* project */
+  @media (max-width: 1480px) {
+    .project-header .project-inner {
+      width: 840px;
+    }
+  }
+  @media (max-width: 1024px) {
+    .project-header .project-inner {
+      width: 100%;
+    }
+  }
+  @media (max-width: 768px) {
+    .project-header .project-inner {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 768px) {
+    .project-header .project-inner .project-description {
+      margin: 1rem 0 3rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .project-header .project-inner .project-description p {
+      width: 100%;
+    }
+  }
+  
+  :root {
+    /* === body var === */
+  
+    --body-mt: 4.5rem;
+  
+    /* === Color === */
+  
+    --main-color: #fff;
+    --secondary-color: hsl(0, 0%, 96%);
+    --third-color: #8a8a8a;
+  
+    --main-color-txt: #13122e;
+    --main-color-txt-hover: hsl(242, 44%, 20%);
+    --secondary-color-txt: #898898;
+  
+    --danger-color: #ff0e0e;
+  
+    /* === fonts === */
+  
+    --serif-font: "Cinzel", serif;
+    --sans-serif-font: "Work Sans", sans-serif;
+  
+    /* === Images === */
+  
+    --size-photo: 500px;
+  }
+  
+  /* ================================== MEDIA QUERIES ================================== */
+  
+  @media screen and (max-width: 1024px) {
+    :root {
+      --size-photo: 400px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    :root {
+      --body-mt: 4rem;
+      --size-photo: 300px;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    :root {
+      --body-mt: 3.25rem;
+      --size-photo: 240px;
+    }
+  }

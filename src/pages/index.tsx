@@ -1,117 +1,196 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Image from 'next/image';
+import { useState } from 'react';
+import { motion, useTransform, useScroll, Variants } from 'framer-motion';
+import Link from 'next/link';
 
-const inter = Inter({ subsets: ['latin'] })
+
+const ease: number[] = [0.08, 0.82, 0.17, 1];
+
+const container: Variants = {
+  show: {
+    transition: {
+      staggerChildren: 0.05,
+      ease: ease,
+    },
+  },
+  exit: {
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+      ease: ease,
+    },
+  },
+};
+const spanVariantsTop: Variants = {
+  initial: { opacity: 0, x: 250 },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.95, delay: 0.5, ease: ease },
+  },
+  exit: {
+    opacity: 0,
+    x: 150,
+    transition: { duration: 0.95, delay: 0.01, ease: ease },
+  },
+};
+const spanVariantsMidleOne: Variants = {
+  initial: { opacity: 0, x: -300 },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.95, delay: 0.7, ease: ease },
+  },
+  exit: {
+    opacity: 0,
+    x: -200,
+    transition: { duration: 0.95, ease: ease },
+  },
+};
+const spanVariantsMidleTwo: Variants = {
+  initial: { opacity: 0, x: 300 },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.95, delay: 0.9, ease: ease },
+  },
+  exit: {
+    opacity: 0,
+    x: 200,
+    transition: { duration: 0.95, ease: ease },
+  },
+};
+const spanVariantsBottom: Variants = {
+  initial: { opacity: 0, x: -280 },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.95, delay: 1.2, ease: ease },
+  },
+  exit: {
+    opacity: 0,
+    x: -180,
+    transition: { duration: 0.95, ease: ease },
+  },
+};
+
+const FirstLine = () => {
+  return (
+    <motion.div
+      variants={container}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      className='h-screen mx-auto flex justify-center items-center px-8 grow relative w-full 1024Max:mx-0 1024Min:max-w-[876px] 1216Min:max-w-[1024px] 1480Min:max-w-[1216px]'
+    >
+      <h1
+        // 2xl:text-[6.6rem] xl:text-[5.5rem] md:text-[4.5rem] 480Max:text-5xl 
+        className='
+        text-[3.9vw] 680Max:text-5xl
+        font-sans text-blackProject dark:text-whiteProject xl:leading-none'
+      >
+        <motion.span
+          variants={spanVariantsTop}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className='block text-right font-light relative z-50'
+        >
+          Welcome to my portfolio.
+        </motion.span>
+        <motion.span
+          variants={spanVariantsMidleOne}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className=' text-[#626eff] block font-Sohne text-[10vw] 680Max:text-[16vw] leading-[0.75] 680Max:text-right 680Max:leading-normal'
+        >
+          I&apos;m Franco
+        </motion.span>
+        <motion.span
+          variants={spanVariantsMidleTwo}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className=' text-[#626eff] block font-Sohne text-[16vw] leading-[0.8] text-right'
+        >
+          Ciprian
+        </motion.span>
+        <motion.span
+          variants={spanVariantsBottom}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className='block font-light'
+        >
+          and I build websites, have a lot of fun with it
+        </motion.span>
+      </h1>
+    </motion.div>
+  )
+}
+
+const SecondLine = () => {
+  const [hovered, setHovered] = useState<boolean>(false)
+  return (
+    <>
+      <h1
+        // dark:text-[#fef6f6e8]
+        className="main-headline text-[3.1vw] text-blackProject dark:text-gray-500  font-sans font-extralight mb-16 leading-[4rem] 1024Max:leading-normal 1024Max:text-4xl 768Max:text-2xl">
+        <motion.span animate={{ opacity: hovered ? 0.2 : 1 }} exit={{ opacity: 0, transition: { duration: 0.95, ease: ease } }}>
+          I am a <span className="font-normal dark:text-white">Front End Developer</span> with a bit of
+          backend experience, primarily working with ReactJS. My taste for Design gave me a great sense of aesthetics, which is reflected in{" "}
+        </motion.span>
+        <motion.span
+          onHoverStart={() => setHovered(!hovered)}
+          onHoverEnd={() => setHovered(!hovered)}
+          className='font-normal underline underline-offset-4 decoration-2 hover:cursor-pointer text-[#626eff]'
+        >
+          <Link href="/projects">my projects</Link>
+        </motion.span>{" "}
+      </h1>
+    </>
+  )
+}
+
+const ScrollForWork = () => {
+  const { scrollYProgress } = useScroll()
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
+  return (
+    <motion.div
+      style={{ opacity }}
+      className="absolute top-[-100px] left-[-108px] 1280Max:-left-14 text-0.75rem flex flex-col items-center 876Max:hidden" >
+      <span className='block mt-3 mb-0 mx-auto text-blackProject dark:text-[#fef6f6e8] font-EngraversGothic underline underline-offset-4'>MORE</span>
+      <span className="block w-[1px] bg-blackProject dark:bg-[#fef6f6e8] h-[56rem]"></span>
+    </motion.div>
+  )
+}
 
 export default function Home() {
+  // const presenceProps: AnimatePresenceProps = {
+  //   mode: 'wait',
+  // };
+  // const divProps: MotionProps = {
+  //   initial: { opacity: 0 },
+  //   exit: { opacity: 0 },
+  //   animate: { opacity: 1 },
+  //   transition: { duration: 1.5, ease: [0.6, -0.05, 0.01, 0.9] },
+  // };
+
+
+  const url = new URL('https://www.youtube.com/watch?v=wm5gMKuwSYk&ab_channel=JavaScriptMastery')
+  console.log(url.href)
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <div className="relative">
+        <FirstLine />
+        <div className="relative h-screen flex items-center max-w-5xl 1024Max:max-w-lg 1216Max:max-w-3xl mx-auto px-8" >
+          <ScrollForWork />
+          <div className="">
+            <SecondLine />
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
       </div>
     </main>
   )
