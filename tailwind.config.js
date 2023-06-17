@@ -10,6 +10,8 @@ module.exports = {
     extend: {
       fontFamily:{
         anderson: 'Anderson, Black',
+        EngraversGothic: 'EngraversGothicBT, Normal',
+        Sohne: 'Sohne, Normal'
       },
       fontSize: {
         'siteVersion' : '0.875rem',
