@@ -10,13 +10,13 @@ const container: Variants = {
       ease: ease,
     },
   },
-  exit: {
-    transition: {
-      staggerChildren: 0.05,
-      staggerDirection: -1,
-      ease: ease,
-    },
-  },
+  // exit: {
+  //   transition: {
+  //     staggerChildren: 0.05,
+  //     staggerDirection: -1,
+  //     ease: ease,
+  //   },
+  // },
 };
 const spanVariantsTop: Variants = {
   initial: { opacity: 0, x: 250 },
@@ -25,11 +25,11 @@ const spanVariantsTop: Variants = {
     x: 0,
     transition: { duration: 0.95, delay: 0.5, ease: ease },
   },
-  exit: {
-    opacity: 0,
-    x: 150,
-    transition: { duration: 0.95, delay: 0.01, ease: ease },
-  },
+  // exit: {
+  //   opacity: 0,
+  //   x: 150,
+  //   transition: { duration: 0.95, delay: 0.01, ease: ease },
+  // },
 };
 const spanVariantsMidleOne: Variants = {
   initial: { opacity: 0, x: -300 },
@@ -38,11 +38,11 @@ const spanVariantsMidleOne: Variants = {
     x: 0,
     transition: { duration: 0.95, delay: 0.7, ease: ease },
   },
-  exit: {
-    opacity: 0,
-    x: -200,
-    transition: { duration: 0.95, ease: ease },
-  },
+  // exit: {
+  //   opacity: 0,
+  //   x: -200,
+  //   transition: { duration: 0.95, ease: ease },
+  // },
 };
 const spanVariantsMidleTwo: Variants = {
   initial: { opacity: 0, x: 300 },
@@ -51,11 +51,11 @@ const spanVariantsMidleTwo: Variants = {
     x: 0,
     transition: { duration: 0.95, delay: 0.9, ease: ease },
   },
-  exit: {
-    opacity: 0,
-    x: 200,
-    transition: { duration: 0.95, ease: ease },
-  },
+  // exit: {
+  //   opacity: 0,
+  //   x: 200,
+  //   transition: { duration: 0.95, ease: ease },
+  // },
 };
 const spanVariantsBottom: Variants = {
   initial: { opacity: 0, x: -280 },
@@ -64,11 +64,11 @@ const spanVariantsBottom: Variants = {
     x: 0,
     transition: { duration: 0.95, delay: 1.2, ease: ease },
   },
-  exit: {
-    opacity: 0,
-    x: -180,
-    transition: { duration: 0.95, ease: ease },
-  },
+  // exit: {
+  //   opacity: 0,
+  //   x: -180,
+  //   transition: { duration: 0.95, ease: ease },
+  // },
 };
 
 const FirstLine = () => {
