@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import Layout from '@/components/layout';
+import Layout from '@/pages/layout';
 import Head from 'next/head'
 import { AnimatePresence, AnimatePresenceProps } from 'framer-motion';
 import { usePathname } from "next/navigation";
