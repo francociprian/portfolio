@@ -1,10 +1,10 @@
 import '@/styles/globals.css';
-import type { AppProps } from 'next/app';
 import Layout from '@/pages/layout';
-import Head from 'next/head'
-import { AnimatePresence, AnimatePresenceProps } from 'framer-motion';
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { usePathname } from "next/navigation";
-import { ThemeProvider } from "next-themes"
+import { AnimatePresence, AnimatePresenceProps } from 'framer-motion';
+import { ThemeProvider } from "next-themes";
 
 
 const presenceProps: AnimatePresenceProps = {
@@ -17,9 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
       <Layout>
-        {/* <Head>
-        <title>Franco Ciprian - {pathname}</title>
-      </Head> */}
+        <Head>
+          <title>Franco Ciprian</title>
+        </Head>
         <AnimatePresence {...presenceProps}>
           <Component {...pageProps} key={pathname} />
         </AnimatePresence>
