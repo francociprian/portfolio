@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-import Layout from './layout';
+import Layout from '@/pages/layout';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { usePathname } from "next/navigation";
