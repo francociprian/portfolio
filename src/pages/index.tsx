@@ -183,7 +183,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <FirstLine />
         <div className="relative h-screen flex items-center max-w-5xl 1024Max:max-w-lg 1216Max:max-w-3xl mx-auto px-8" >
           <ScrollForWork />
