@@ -1,11 +1,8 @@
-import Image from 'next/image';
 import { useState } from 'react';
 import { motion, useTransform, useScroll, Variants } from 'framer-motion';
 import Link from 'next/link';
 
-
 const ease: number[] = [0.08, 0.82, 0.17, 1];
-
 const container: Variants = {
   show: {
     transition: {
@@ -167,20 +164,6 @@ const ScrollForWork = () => {
 }
 
 export default function Home() {
-  // const presenceProps: AnimatePresenceProps = {
-  //   mode: 'wait',
-  // };
-  // const divProps: MotionProps = {
-  //   initial: { opacity: 0 },
-  //   exit: { opacity: 0 },
-  //   animate: { opacity: 1 },
-  //   transition: { duration: 1.5, ease: [0.6, -0.05, 0.01, 0.9] },
-  // };
-
-
-  const url = new URL('https://www.youtube.com/watch?v=wm5gMKuwSYk&ab_channel=JavaScriptMastery')
-  console.log(url.href)
-
   return (
     <main>
       <div className="relative overflow-hidden">
