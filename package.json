@@ -25,6 +25,7 @@
     "react-dom": "18.2.0",
     "resize-observer-polyfill": "^1.5.1",
     "sanity": "^3.12.1",
+    "sanity-plugin-cloudinary": "^1.1.1",
     "typescript": "5.1.3"
   },
   "devDependencies": {
