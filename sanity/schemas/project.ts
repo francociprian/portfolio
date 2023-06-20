@@ -44,5 +44,41 @@ export default defineType({
       title: 'Description',
       type: 'text',
     }),
+    defineField({
+      name: "imageMain",
+      title: "Image Main",
+      type: "cloudinary.asset",
+      description: "Image Main",
+    }),
+    defineField({
+      name: "imageMain2",
+      title: "Image Main 2",
+      type: "cloudinary.asset",
+      description: "Image Main 2",
+    }),
+    defineField({
+      name: "imageMain3",
+      title: "Image Main 3",
+      type: "cloudinary.asset",
+      description: "Image Main 3",
+    }),
+    defineField({
+      name: "imageMobile",
+      title: "Image Mobile",
+      type: "cloudinary.asset",
+      description: "Image Mobile",
+    }),
+    defineField({
+      name: "imageMobile2",
+      title: "Image Mobile 2",
+      type: "cloudinary.asset",
+      description: "Image Mobile 2",
+    }),
+    defineField({
+      name: "imageMobile3",
+      title: "Image Mobile 3",
+      type: "cloudinary.asset",
+      description: "Image Mobile 3",
+    })
   ],
 })
