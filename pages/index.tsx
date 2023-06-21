@@ -163,7 +163,7 @@ const ScrollForWork = () => {
   )
 }
 
-export default function Home() {
+export default function Home(){
   return (
     <main>
       <div className="relative overflow-hidden">
