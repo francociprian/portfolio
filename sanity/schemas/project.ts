@@ -35,6 +35,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'details',
+      title: 'Details',
+      type: 'string',
+    }),
+    defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
@@ -61,6 +66,12 @@ export default defineType({
       title: "Image Main 3",
       type: "cloudinary.asset",
       description: "Image Main 3",
+    }),
+    defineField({
+      name: "imageMain4",
+      title: "Image Main 4",
+      type: "cloudinary.asset",
+      description: "Image Main 4",
     }),
     defineField({
       name: "imageMobile",
