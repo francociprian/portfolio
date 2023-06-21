@@ -9,14 +9,7 @@ const container: Variants = {
       staggerChildren: 0.05,
       ease: ease,
     },
-  },
-  // exit: {
-  //   transition: {
-  //     staggerChildren: 0.05,
-  //     staggerDirection: -1,
-  //     ease: ease,
-  //   },
-  // },
+  }
 };
 const spanVariantsTop: Variants = {
   initial: { opacity: 0, x: 250 },
@@ -24,12 +17,7 @@ const spanVariantsTop: Variants = {
     opacity: 1,
     x: 0,
     transition: { duration: 0.95, delay: 0.5, ease: ease },
-  },
-  // exit: {
-  //   opacity: 0,
-  //   x: 150,
-  //   transition: { duration: 0.95, delay: 0.01, ease: ease },
-  // },
+  }
 };
 const spanVariantsMidleOne: Variants = {
   initial: { opacity: 0, x: -300 },
@@ -37,12 +25,7 @@ const spanVariantsMidleOne: Variants = {
     opacity: 1,
     x: 0,
     transition: { duration: 0.95, delay: 0.7, ease: ease },
-  },
-  // exit: {
-  //   opacity: 0,
-  //   x: -200,
-  //   transition: { duration: 0.95, ease: ease },
-  // },
+  }
 };
 const spanVariantsMidleTwo: Variants = {
   initial: { opacity: 0, x: 300 },
@@ -50,12 +33,7 @@ const spanVariantsMidleTwo: Variants = {
     opacity: 1,
     x: 0,
     transition: { duration: 0.95, delay: 0.9, ease: ease },
-  },
-  // exit: {
-  //   opacity: 0,
-  //   x: 200,
-  //   transition: { duration: 0.95, ease: ease },
-  // },
+  }
 };
 const spanVariantsBottom: Variants = {
   initial: { opacity: 0, x: -280 },
@@ -63,12 +41,15 @@ const spanVariantsBottom: Variants = {
     opacity: 1,
     x: 0,
     transition: { duration: 0.95, delay: 1.2, ease: ease },
-  },
-  // exit: {
-  //   opacity: 0,
-  //   x: -180,
-  //   transition: { duration: 0.95, ease: ease },
-  // },
+  }
+};
+const spanVariantsScrollForWork: Variants = {
+  initial: { opacity: 0, x: 300 },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.95, delay: 1.4, ease: ease },
+  }
 };
 
 const FirstLine = () => {
@@ -100,7 +81,7 @@ const FirstLine = () => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className=' text-[#626eff] block font-Sohne text-[10vw] 680Max:text-[16vw] leading-[0.75] 680Max:text-right 680Max:leading-normal'
+          className=' text-[#626eff] block font-Sohne text-[10vw] 680Max:text-[18vw] leading-[0.75] 680Max:text-right 680Max:leading-none'
         >
           I&apos;m Franco
         </motion.span>
@@ -109,7 +90,7 @@ const FirstLine = () => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className=' text-[#626eff] block font-Sohne text-[16vw] leading-[0.8] text-right'
+          className=' text-[#626eff] block font-Sohne text-[16vw] 680Max:text-[26vw] leading-[0.8] text-right'
         >
           Ciprian
         </motion.span>
@@ -132,9 +113,10 @@ const SecondLine = () => {
   return (
     <>
       <h1
-        // dark:text-[#fef6f6e8]
         className="main-headline text-[3.1vw] text-blackProject dark:text-gray-500  font-sans font-extralight mb-16 leading-[4rem] 1024Max:leading-normal 1024Max:text-4xl 768Max:text-2xl">
-        <motion.span animate={{ opacity: hovered ? 0.2 : 1 }} exit={{ opacity: 0, transition: { duration: 0.95, ease: ease } }}>
+        <motion.span
+          animate={{ opacity: hovered ? 0.2 : 1 }}
+        >
           I am a <span className="font-normal dark:text-white">Front End Developer</span> with a bit of
           backend experience, primarily working with ReactJS. My taste for Design gave me a great sense of aesthetics, which is reflected in{" "}
         </motion.span>
@@ -155,15 +137,19 @@ const ScrollForWork = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
   return (
     <motion.div
+      variants={spanVariantsScrollForWork}
+      initial="initial"
+      animate="animate"
+      exit="exit"
       style={{ opacity }}
-      className="absolute top-[-100px] left-[-108px] 1280Max:-left-14 text-0.75rem flex flex-col items-center 876Max:hidden" >
-      <span className='block mt-3 mb-0 mx-auto text-blackProject dark:text-[#fef6f6e8] font-EngraversGothic underline underline-offset-4'>MORE</span>
-      <span className="block w-[1px] bg-blackProject dark:bg-[#fef6f6e8] h-[56rem]"></span>
+      className="absolute top-[-100px] left-[-108px] text-0.75rem flex flex-col items-center 876Max:top-[-200px] 876Max:!right-[0px] 876Max:!left-[250px]" >
+      <span className='block mt-3 mb-0 text-blackProject dark:text-[#fef6f6e8] font-EngraversGothic underline underline-offset-4'>MORE</span>
+      <span className="block w-[1px] bg-blackProject dark:bg-[#fef6f6e8] h-[56rem] 680Max:!h-[20rem]"></span>
     </motion.div>
   )
 }
 
-export default function Home(){
+export default function Home() {
   return (
     <main>
       <div className="relative overflow-hidden">
