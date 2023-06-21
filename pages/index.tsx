@@ -143,7 +143,7 @@ const SecondLine = () => {
           onHoverEnd={() => setHovered(!hovered)}
           className='font-normal underline underline-offset-4 decoration-2 hover:cursor-pointer text-[#626eff]'
         >
-          <Link href="/projects">my projects</Link>
+          <Link href="/projects" scroll={false}>my projects</Link>
         </motion.span>{" "}
       </h1>
     </>
