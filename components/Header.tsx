@@ -29,7 +29,7 @@ const Header = ({ menuState, setMenuState }: MenuProps) => {
             //     "text-0.75rem ml-0 mr-12 font-normal relative after:876Max:hidden after:content-[''] after:absolute after:left-1/2 after:top-4 after:rounded-full after:h-1 after:w-1 after:bg-[#626eff] after:block" 
             //       : 
             //     'text-0.75rem ml-0 mr-12'}
-            href="/projects"
+            href="/project"
           >
             PROJECTS
           </Link>

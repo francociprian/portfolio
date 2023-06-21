@@ -48,7 +48,7 @@ const Menu = ({ menuState, setMenuState }: MenuProps) => {
                     <Link className="text-8xl 480Max:text-6xl capitalize mx-auto font-Sohne" href="/">Home</Link>
                   </li>
                   <li className="m-24 text-white relative overflow-hidden 480Max:m-16">
-                    <Link className="text-8xl 480Max:text-6xl capitalize mx-auto font-Sohne" href="/projects">Projects</Link>
+                    <Link className="text-8xl 480Max:text-6xl capitalize mx-auto font-Sohne" href="/project">Projects</Link>
                   </li>
                   <li className="m-24 text-white relative overflow-hidden 480Max:m-16">
                     <Link className="text-8xl 480Max:text-6xl capitalize mx-auto font-Sohne" href='/contact'>Contact</Link>
