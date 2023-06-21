@@ -21,7 +21,6 @@ export function TwitterIcon() {
         </svg>
     );
 }
-
 export function GitHubIcon() {
     return (
         <svg
@@ -45,7 +44,6 @@ export function GitHubIcon() {
         </svg>
     );
 }
-
 export function ArrowIcon() {
     return (
         <svg
@@ -63,11 +61,10 @@ export function ArrowIcon() {
         </svg>
     );
 }
-
 export function MoonIcon() {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-4 h-4" viewBox="0 0 16 16">
+            <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
         </svg>
     );
 }
@@ -78,16 +75,3 @@ export function SunIcon() {
         </svg>
     );
 }
-
-// export function MoonIcon() {
-//     return (
-
-//     );
-// }
-
-
-
-
-
-
-
