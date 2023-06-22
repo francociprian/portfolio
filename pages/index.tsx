@@ -118,14 +118,14 @@ const SecondLine = () => {
           animate={{ opacity: hovered ? 0.2 : 1 }}
         >
           I am a <span className="font-normal dark:text-white">Front End Developer</span> with a bit of
-          backend experience, primarily working with ReactJS. My taste for Design gave me a great sense of aesthetics, which is reflected in{" "}
+          backend experience, primarily working with React.js and Next.js. My taste for Design gave me a great sense of aesthetics, which is reflected in{" "}
         </motion.span>
         <motion.span
           onHoverStart={() => setHovered(!hovered)}
           onHoverEnd={() => setHovered(!hovered)}
           className='font-normal underline underline-offset-4 decoration-2 hover:cursor-pointer text-[#626eff]'
         >
-          <Link href="/projects" scroll={false}>my projects</Link>
+          <Link href="/project" scroll={false}>my projects</Link>
         </motion.span>{" "}
       </h1>
     </>
@@ -164,3 +164,7 @@ export default function Home() {
     </main>
   )
 }
+console.log(
+  "%cCreated by FRANCOCIPRIAN ❤️",
+  "color: black; font-weight: bold; background-color: white; padding: 2rem; font-family: Work Sans, sans-serif;"
+);
