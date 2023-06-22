@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { usePathname } from "next/navigation";
 import { AnimatePresence, AnimatePresenceProps } from 'framer-motion';
 import { ThemeProvider } from "next-themes";
+import { Analytics } from '@vercel/analytics/react';
 
 
 const presenceProps: AnimatePresenceProps = {
@@ -22,6 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </Head>
         <AnimatePresence {...presenceProps}>
           <Component {...pageProps} key={pathname} />
+          <Analytics />
         </AnimatePresence>
       </Layout>
     </ThemeProvider>
