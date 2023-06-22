@@ -27,19 +27,6 @@ export async function loadData() {
         _id, 
         title, 
         slug,
-        techStack,
-        deploy,
-        github,
-        details,
-        publishedAt, 
-        description,
-        imageMain,
-        imageMain2,
-        imageMain3,
-        imageMain4,
-        imageMobile,
-        imageMobile2,
-        imageMobile3
       }`;
     const project = await client.fetch(query);
     return {
