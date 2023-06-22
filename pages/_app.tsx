@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </Head>
         <AnimatePresence {...presenceProps}>
           <Component {...pageProps} key={pathname} />
-          <Analytics />
+          <Analytics  />
         </AnimatePresence>
       </Layout>
     </ThemeProvider>
