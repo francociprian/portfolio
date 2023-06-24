@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronUpIcon } from "./icons";
+import { ChevronUp } from 'lucide-react';
 
 export const ScrollTop = () => {
   const [showScrollButton, setShowScrollButton] = useState<boolean>(false);
@@ -39,7 +39,7 @@ export const ScrollTop = () => {
             className='bg-[#626eff] text-white inline-block rounded-full p-1 fixed right-4 bottom-4'
             onClick={scrollToTop}
           >
-            <ChevronUpIcon />
+            <ChevronUp />
           </button>
         </div>}
     </>
