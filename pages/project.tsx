@@ -1,18 +1,10 @@
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { loadData } from "./api/project";
-import { GetServerSideProps } from "next";
+import type { GetStaticProps } from "next";
+import type { Projects } from '@/lib/types'
 
-type Project = {
-  _id: number;
-  title: string;
-  slug: {
-    current: string,
-    _type: string
-  }
-};
-
-export default function projects({ project }: { project: Project[] }){
+export default function projects({ project }: { project: Projects[] }) {
   const ease: number[] = [0.08, 0.82, 0.17, 1];
   const containerLetters: Variants = {
     animate: {
@@ -70,13 +62,9 @@ export default function projects({ project }: { project: Project[] }){
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const { project } = await loadData()
-  return {
-    props: {
-      project
-    },
-  }
+  return { props: { project }}
 }
 
 
