@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ButtonTheme } from './ButtonTheme'
+import { ContactBtn } from '@/components/ContactBtn'
 
 type MenuProps = {
   setMenuState: React.Dispatch<boolean>,
@@ -12,11 +13,6 @@ const Header = ({ menuState, setMenuState }: MenuProps) => {
       <div className="h-16 flex items-center justify-between font-EngraversGothic max-w-[1320px] mx-auto">
         <Link
           className='text-0.75rem ml-0 mr-12'
-          // className={
-          //   (navData) => navData.isActive ? 
-          //   "text-0.75rem ml-0 mr-12 font-normal relative after:876Max:hidden after:content-[''] after:absolute after:left-1/2 after:top-4 after:rounded-full after:h-1 after:w-1 after:bg-[#626eff] after:block" 
-          //     : 
-          //   'text-0.75rem ml-0 mr-12'}
           href="/"
         >
           HOME
@@ -24,26 +20,11 @@ const Header = ({ menuState, setMenuState }: MenuProps) => {
         <nav className="w-full text-center flex items-center justify-end 876Max:hidden">
           <Link
             className='text-0.75rem ml-0 mr-12'
-            //   className={
-            //     (navData) => navData.isActive ? 
-            //     "text-0.75rem ml-0 mr-12 font-normal relative after:876Max:hidden after:content-[''] after:absolute after:left-1/2 after:top-4 after:rounded-full after:h-1 after:w-1 after:bg-[#626eff] after:block" 
-            //       : 
-            //     'text-0.75rem ml-0 mr-12'}
             href="/project"
           >
             PROJECTS
           </Link>
-          <Link
-            className='text-0.75rem ml-0 mr-12'
-            //   className={
-            //     (navData) => navData.isActive ? 
-            //     "text-0.75rem ml-0 mr-12 font-normal relative after:876Max:hidden after:content-[''] after:absolute after:left-1/2 after:top-4 after:rounded-full after:h-1 after:w-1 after:bg-[#626eff] after:block" 
-            //       : 
-            //     'text-0.75rem ml-0 mr-12'}
-            href='/contact'
-          >
-            CONTACT
-          </Link>
+          <ContactBtn />
           <ButtonTheme />
         </nav>
         <div className="hidden 876Max:flex items-center">
