@@ -1,5 +1,7 @@
-import { motion, AnimatePresence, MotionProps, AnimatePresenceProps } from "framer-motion";
 import { Mail, Linkedin, FileText } from 'lucide-react'
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 const socialLinks = [
   {
@@ -35,60 +37,57 @@ const socialLinks = [
   },
 ];
 
+function CardContainer({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={cn(
+        "flex items-center justify-center max-w-[455px] [&>div]:w-full p-4",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function CardContact() {
+  return (
+    <CardContainer>
+      <Card>
+        <CardHeader className="space-y-1">
+          <CardTitle className="text-2xl">Contact Me</CardTitle>
+          <CardDescription>
+            If you want to know more about me, you can contact me through these means.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="grid gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {socialLinks.map((l, i) => (
+              <Button key={i} asChild className='max-w-sm w-full' variant='outline'>
+                <a
+                  href={l.url}
+                  target="_blank"
+                >
+                  {l.icon}
+                  <span className="ml-2">by {l.title}</span>
+                </a>
+              </Button>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </CardContainer>
+  )
+}
 
 export default function contact() {
-  const presenceProps: AnimatePresenceProps = {
-    mode: 'wait',
-  };
-  const ease: number[] = [0.08, 0.82, 0.17, 1];
-  const enterLeftProps: MotionProps = {
-    initial: { opacity: 0, x: -800 },
-    animate: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.95, delay: 0.2, ease: ease },
-    },
-    exit: {
-      opacity: 0,
-      x: -800,
-      transition: { duration: 0.95, ease: ease },
-    },
-  };
-  const enterLinkProps: MotionProps = {
-    initial: { opacity: 0, y: -800 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.95, delay: 0.2, ease: ease },
-    },
-    exit: {
-      opacity: 0,
-      y: -800,
-      transition: { duration: 0.95, ease: ease },
-    },
-  };
   return (
-    <AnimatePresence {...presenceProps}>
-      <div className='h-screen flex flex-col justify-evenly items-center '>
-        <motion.h1 {...enterLeftProps} 
-          className='text-center font-extrabold tracking-tighter text-5xl md:text-6xl lg:text-8xl text-black dark:text-white font-Sohne'
-        >
-          Contact me
-        </motion.h1>
-        <div className="grid md:grid-cols-8 max-w-7xl w-full mx-auto">
-          {socialLinks.map((l, i) => (
-            <motion.div {...enterLinkProps} key={i} className="col-span-2 flex gap-2 items-center justify-center">
-              <a 
-                className="flex items-center gap-2"
-                href={l.url}
-                target="_blank"
-              >
-                {l.icon}<span>{l.title}</span>
-              </a>
-            </motion.div>
-          ))}
-        </div>
+    <div className='h-screen flex flex-col justify-center items-center '>
+      <div className="col-span-2 grid items-start gap-6 lg:col-span-1">
+        <CardContact/>
       </div>
-    </AnimatePresence>
+    </div>
   )
 }
