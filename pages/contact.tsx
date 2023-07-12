@@ -5,22 +5,27 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 const socialLinks = [
   {
-    title: "Curriculum",
-    url: "https://drive.google.com/file/d/1oL7RCxzYAJOC0ggCC0E1y-TR2uQKiVEL/view?usp=sharing",
+    title: "CV Español",
+    url: "https://diamond-stoplight-f48.notion.site/Franco-Ciprian-ES-46007b0d459b483692ed53154733bf39?pvs=4",
     icon: <FileText />
   },
   {
-    title: "E-mail",
+    title: "CV English",
+    url: "https://diamond-stoplight-f48.notion.site/Franco-Ciprian-EN-e0aefa85a8b24437ba8745cb10b7aefc?pvs=4",
+    icon: <FileText />
+  },
+  {
+    title: "by E-mail",
     url: "mailto:franco_ciprian@hotmail.com",
     icon: <Mail />
   },
   {
-    title: "LinkedIn",
+    title: "by LinkedIn",
     url: "http://www.linkedin.com/in/franco-ciprian-387231222/",
     icon: <Linkedin />
   },
   {
-    title: "GitHub",
+    title: "by GitHub",
     url: "https://github.com/francociprian",
     icon: <svg
       className="h-6 w-6"
@@ -71,7 +76,7 @@ function CardContact() {
                   target="_blank"
                 >
                   {l.icon}
-                  <span className="ml-2">by {l.title}</span>
+                  <span className="ml-2">{l.title}</span>
                 </a>
               </Button>
             ))}
