@@ -1,93 +1,126 @@
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
-import { loadData } from "./api/project";
+import { motion } from "framer-motion";
 import type { GetStaticProps } from "next";
 import type { Projects } from '@/lib/types'
+import { client } from '@/sanity/lib/client';
 
-export default function projects({ project }: { project: Projects[] }) {
-  const ease: number[] = [0.08, 0.82, 0.17, 1];
-  const containerLetters: Variants = {
-    animate: {
-      transition: {
-        delayChildren: 0.5,
-        staggerChildren: 0.01,
-        ease: ease,
-      },
-    }
+type ImageCloudinary = {
+  url: string;
+  resource_type: string;
+  duration: null;
+  secure_url: string;
+  access_mode: string;
+  access_control: any[];
+  created_by: {
+    id: string;
+    type: string;
   };
-  const letter: Variants = {
-    initial: {
-      transform: "translateX(-200%)"
-    },
-    animate: {
-      transform: "translateX(0%)",
-      transition: {
-        duration: 1,
-        ease: ease,
-      },
-    }
+  metadata: any[];
+  format: string;
+  type: string;
+  public_id: string;
+  tags: any[];
+  bytes: number;
+  _version: number;
+  height: number;
+  created_at: String;
+  uploaded_by: {
+    id: string;
+    type: string;
   };
+  _type: string;
+  version: number;
+  width: number;
+  _key: string;
+}
+type Project = {
+  _id: number;
+  title: string;
+  techStack: string;
+  deploy: string;
+  github: string;
+  details: string;
+  description: string;
+  slug: {
+    current: string,
+    _type: string
+  };
+  imageMain: ImageCloudinary;
+  imageMain2?: ImageCloudinary;
+  imageMain3?: ImageCloudinary;
+  imageMain4?: ImageCloudinary;
+  imageMobile?: ImageCloudinary;
+  imageMobile2?: ImageCloudinary;
+  imageMobile3?: ImageCloudinary;
+};
+
+const ListProject = ({ x }: { x: Project }) => {
+
+  const [isActive, setIsActive] = useState(false);
+  const animation = {
+    initial: { width: 0 },
+    open: { width: "auto", transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] } },
+    closed: { width: 0 }
+  }
 
   return (
-    <div>
-      <motion.div
-        variants={containerLetters}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        className="overflow-hidden min-h-screen flex flex-col items-center justify-center"
+    <Link
+      href={{
+        pathname: `/project/${encodeURIComponent(x.slug.current)}`,
+        query: { slug: x.slug.current },
+      }}
+    >
+      <div
+        onMouseEnter={() => { setIsActive(true) }}
+        onMouseLeave={() => { setIsActive(false) }}
+        className={`
+          border-t-2 border-black dark:border-white py-[0.8vw] cursor-pointer w-full flex justify-center items-center 
+          ${x.slug.current === "socialtree" ? "border-b-2" : ""}
+          `}
       >
-        {project.map((x) => (
-          <motion.div
-            key={x._id}
-            variants={letter}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className="m-0 pb-10"
-          >
-            <Link
-              className="text-blackProject dark:text-whiteProject text-[6vw] font-Sohne leading-[0.75]"
-              href={{
-                pathname: `/project/${encodeURIComponent(x.slug.current)}`,
-                query: { slug: x.slug.current },
-              }}
-            >
-              {x.title}
-            </Link>
-          </motion.div>
+        <p className="text-[4vw] m-0 mr-[0.75vw]">Project</p>
+        <motion.div
+          variants={animation}
+          animate={isActive ? "open" : "closed"}
+          className="overflow-hidden flex justify-center w-0"
+        >
+          <Image
+            src={x.imageMain.url}
+            className="img"
+            height='200'
+            width='200'
+            alt={x.title}
+          />
+        </motion.div>
+        <p className="text-[4vw] m-0 ml-[0.75vw]">{x.title}</p>
+      </div>
+    </Link>
+  )
+}
+
+
+
+export default function Projects({ data }: { data: Project[] }) {
+  return (
+    <div className="overflow-hidden h-[calc(100vh-4rem)] flex items-center justify-center">
+      <div className="w-[70%] lg:mt-16">
+        {data.map((x) => (
+          <ListProject x={x} key={x._id} />
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { project } = await loadData()
-  return { props: { project }}
+  const query = `*[_type == "project"]`;
+
+  const data = await client.fetch(query);
+  return {
+    props: {
+      data
+    },
+  }
 }
-
-
-
-{/* <div className='mt-[4.5rem] mb-24 max-w-6xl'>
-        {project.map((x) => (
-          <div
-            key={x._id}
-            className='flex flex-col items-center mt-6 mb-12'
-          >
-            <Link
-              href={{
-                pathname: `/project/${encodeURIComponent(x.slug.current)}`,
-                query: { slug: x.slug.current },
-              }}
-            >
-              <motion.h5
-                {...projectEnterLeftProps}
-                className='text-blackProject dark:text-whiteProject text-6xl m-0 font-Sohne underline underline-offset-8 pb-10'
-              >
-                {x.title}
-              </motion.h5>
-            </Link>
-          </div>
-        ))}
-</div> */}
