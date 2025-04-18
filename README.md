@@ -1,6 +1,6 @@
 # 🚀 Portfolio Franco Ciprian 
 
-# [![Deploy with Vercel](https://vercel.com/button)](https://www.francociprian.com.ar/)
+# [![Deploy with Vercel](https://vercel.com/button)](https://www.francociprian.com/)
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **HeadlessCMS**: [Sanity](https://www.sanity.io/)
