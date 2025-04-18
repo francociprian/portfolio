@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const meta = {
     title: 'Franco Ciprian',
     description: `Front-end developer`,
-    image: 'https://www.francociprian.com.ar/static/images/banner.png',
+    image: 'https://www.francociprian.com/static/images/banner.png',
     type: 'website',
   };
   const pathname = usePathname();
@@ -30,8 +30,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
-        <meta property="og:url" content={`https://www.francociprian.com.ar${router.asPath}`} />
-        <link rel="canonical" href={`https://www.francociprian.com.ar${router.asPath}`} />
+        <meta property="og:url" content={`https://www.francociprian.com${router.asPath}`} />
+        <link rel="canonical" href={`https://www.francociprian.com${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Franco Ciprian" />
         <meta property="og:description" content={meta.description} />
