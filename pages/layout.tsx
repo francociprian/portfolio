@@ -9,7 +9,7 @@ export default function Layout({
   title = 'Franco Ciprian | Frontend Developer',
   description = 'Portfolio de Franco Ciprian, desarrollador frontend especializado en React, Next.js y tecnologías web modernas',
   keywords = 'frontend, developer, react, next.js, javascript, typescript, portfolio',
-  ogImage = '/static/image/banner.png',
+  ogImage = '/image/banner.png',
 }: { 
   children: React.ReactNode,
   title?: string,
