@@ -8,7 +8,10 @@ const createSitemap = ( slugs: string[] ) : string =>
           .map((slug) => {
             return `
                 <url>
-                    <loc>${`https://www.francociprian.com.ar/${slug}`}</loc>
+                    <loc>${`https://www.francociprian.com/${slug}`}</loc>
+                    <lastmod>${new Date().toISOString()}</lastmod>
+                    <changefreq>monthly</changefreq>
+                    <priority>${slug === '' ? '1.0' : '0.8'}</priority>
                 </url>
             `;
           })
@@ -26,6 +29,7 @@ export async function getServerSideProps({res}: {res: NextApiResponse}) {
       '',
       'project',
       'contact',
+      'about',  // Añadido si tienes esta página
     ],
     ...allPosts.map((slug:string) => `project/${slug}`)
   ];

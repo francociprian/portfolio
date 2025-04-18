@@ -1,2 +1,10 @@
+# Allow all crawlers
 User-agent: *
-Sitemap: https://www.francociprian.com.ar/sitemap.xml
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.francociprian.com/sitemap.xml
+
+# Prevent crawling of specific directories if needed
+# Disallow: /private/
+# Disallow: /admin/
