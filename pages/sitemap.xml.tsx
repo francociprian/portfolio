@@ -29,7 +29,6 @@ export async function getServerSideProps({res}: {res: NextApiResponse}) {
       '',
       'project',
       'contact',
-      'about',  // Añadido si tienes esta página
     ],
     ...allPosts.map((slug:string) => `project/${slug}`)
   ];

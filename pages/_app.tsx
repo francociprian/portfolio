@@ -31,6 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
+        <link rel="canonical" href="https://www.francociprian.com/" />
         <meta property="og:url" content={`https://www.francociprian.com${router.asPath}`} />
         <link rel="canonical" href={`https://www.francociprian.com${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
